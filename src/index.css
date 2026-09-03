@@ -1,0 +1,825 @@
+@font-face {
+  font-family: 'Neaments';
+  src: local('Swistblnk Neaments'), local('Neaments'), local('Swistblnk Neaments Free'),
+    url('/fonts/Neaments.otf') format('opentype'),
+    url('/fonts/Neaments.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg-dark: #090d16;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --bg-card-hover: rgba(30, 41, 59, 0.85);
+  --border-glow: rgba(56, 189, 248, 0.2);
+  --border-glow-active: rgba(56, 189, 248, 0.5);
+
+  --primary: #38bdf8;
+  --primary-glow: rgba(56, 189, 248, 0.4);
+  --secondary: #818cf8;
+  --accent: #c084fc;
+  --accent-green: #34d399;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  --font-main: 'Outfit', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  background-image: url('./assets/cyberspace-grid-bg.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.5);
+}
+
+/* Background Cyber Grid Overlay */
+.bg-cyber-grid {
+  position: fixed;
+  inset: 0;
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Typography & Utilities */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-alt {
+  background: linear-gradient(135deg, #38bdf8 0%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism Containers */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-glow-active);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.15);
+}
+
+/* Enhanced Skill Cards */
+.skill-card-enhanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.skill-card-enhanced:hover {
+  transform: translateY(-5px);
+  border-color: var(--skill-color, var(--border-glow-active)) !important;
+  box-shadow: 0 14px 35px -8px var(--skill-glow, rgba(56, 189, 248, 0.25)), 0 0 20px -4px var(--skill-glow, rgba(56, 189, 248, 0.2)) !important;
+  background: rgba(20, 28, 48, 0.88);
+}
+
+.skill-card-enhanced .skill-icon-wrapper {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.skill-card-enhanced:hover .skill-icon-wrapper {
+  transform: scale(1.1) rotate(3deg);
+  border-color: var(--skill-color, var(--primary)) !important;
+  box-shadow: 0 6px 22px var(--skill-glow, rgba(56, 189, 248, 0.45)) !important;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card 1: Exigencia Estética & Atención al Detalle (Fondo Flor de Cristal Original) */
+.card-aesthetic-flower {
+  position: relative;
+  overflow: hidden;
+  background-color: #f7eef4 !important;
+  background-image: url('/crystal-flower.png') !important;
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(244, 114, 182, 0.3) !important;
+}
+
+.card-aesthetic-flower::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.2) 100%);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-aesthetic-flower:hover::before {
+  opacity: 0.8;
+}
+
+.card-aesthetic-flower > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-aesthetic-flower h3 {
+  color: #090d16 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+.card-aesthetic-flower p {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+  line-height: 1.6 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+/* Card 2: Creatividad Orientada a Soluciones Reales (Fondo Bombillo Creativo) */
+.card-creative-bulb {
+  position: relative;
+  overflow: hidden;
+  background-color: #f8f4ed !important;
+  background-image: url('/bombillo-creativo.jpg?v=2') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(245, 158, 11, 0.35) !important;
+}
+
+.card-creative-bulb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.30) 100%);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-creative-bulb:hover::before {
+  opacity: 0.85;
+}
+
+.card-creative-bulb > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-creative-bulb h3 {
+  color: #090d16 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 0 8px rgba(255, 255, 255, 0.95);
+}
+
+.card-creative-bulb p {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+  line-height: 1.6 !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 0 8px rgba(255, 255, 255, 0.95);
+}
+
+/* Card 3: Toma de Decisiones & Metodología Iterativa (Fondo Mano Robótica IA) */
+.card-ai-decision {
+  position: relative;
+  overflow: hidden;
+  background-color: #070e1e !important;
+  background-image: url('/robot-hand-vertical.jpg') !important;
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(56, 189, 248, 0.5) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.35) !important;
+}
+
+.card-ai-decision::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 14, 30, 0.45) 0%, rgba(7, 14, 30, 0.25) 50%, rgba(7, 14, 30, 0.65) 100%);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-ai-decision:hover::before {
+  opacity: 0.8;
+}
+
+.card-ai-decision > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-ai-decision h3 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 12px rgba(56, 189, 248, 0.6);
+}
+
+.card-ai-decision p {
+  color: #f1f5f9 !important;
+  font-weight: 500 !important;
+  line-height: 1.6 !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Card 4: Equilibrio Full Stack (Fondo Monitor HUD & Destello) */
+.card-fullstack-balance {
+  position: relative;
+  overflow: hidden;
+  background-color: #070e1e !important;
+  background-image: url('/monitor-hud-destello.jpg') !important;
+  background-size: 100% 100% !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(56, 189, 248, 0.5) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.35) !important;
+}
+
+.card-fullstack-balance::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 14, 30, 0.45) 0%, rgba(7, 14, 30, 0.25) 50%, rgba(7, 14, 30, 0.65) 100%);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-fullstack-balance:hover::before {
+  opacity: 0.8;
+}
+
+.card-fullstack-balance > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-fullstack-balance h3 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 12px rgba(56, 189, 248, 0.6);
+}
+
+.card-fullstack-balance p {
+  color: #f1f5f9 !important;
+  font-weight: 500 !important;
+  line-height: 1.6 !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.glass-nav {
+  position: relative;
+  overflow: hidden;
+  background: rgba(7, 11, 20, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+}
+
+.glass-nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('./assets/nav-bg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.75;
+  z-index: -1;
+  pointer-events: none;
+  filter: contrast(1.15) brightness(0.95);
+}
+
+.nav-logo-brand {
+  width: 180px;
+  height: 130px;
+  object-fit: contain;
+  margin-top: -26px;
+  margin-bottom: -26px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 12px rgba(16, 224, 48, 0.25));
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+  display: block;
+}
+
+.nav-logo-brand:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 18px rgba(16, 224, 48, 0.45));
+}
+
+@media (max-width: 768px) {
+  .nav-logo-brand {
+    height: 50px;
+  }
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 26px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.5);
+  filter: brightness(1.1);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(30, 41, 59, 0.6);
+  color: var(--text-main);
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  background: rgba(51, 65, 85, 0.8);
+  border-color: var(--primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Badge pills */
+.badge-tech {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  color: #fbbf24;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(251, 191, 36, 0.15);
+  transition: var(--transition);
+}
+
+.badge-tech:hover {
+  background: rgba(251, 191, 36, 0.25);
+  border-color: #f59e0b;
+  color: #ffe600;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Status Indicator */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: var(--radius-full);
+  color: var(--accent-green);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.dot-pulse {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-green);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  animation: pulse-ring 1.8s infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+
+/* Container & Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-padding {
+  padding: 60px 0;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+  font-weight: 400;
+}
+
+/* Keyframe Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   🎨 Artistic Fluid Paint Script Typography (Hero Title - Image 1 Style)
+   ========================================================================== */
+.papercut-hero-title-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.papercut-hero-title {
+  font-family: 'Kaushan Script', 'Satisfy', 'Caveat', 'Sedgwick Ave', 'Pacifico', cursive;
+  font-weight: 500;
+  font-size: clamp(3.5rem, 6.0vw, 5.5rem);
+  line-height: 1.18;
+  letter-spacing: 0.5px;
+  margin: 0;
+  background-image: url('/artistic-paint-texture.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: -webkit-optimize-contrast;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  -webkit-text-stroke: 1.45px #ffffff;
+  paint-order: stroke fill;
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.7));
+}
+
+.papercut-hero-title span {
+  display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .papercut-hero-title {
+    font-size: 3.7rem;
+    line-height: 1.2;
+    -webkit-text-stroke: 1.25px #ffffff;
+  }
+}
+
+@media (max-width: 768px) {
+  .papercut-hero-title {
+    font-size: 2.5rem;
+    line-height: 1.23;
+    -webkit-text-stroke: 1px #ffffff;
+  }
+
+  .papercut-hero-title span {
+    white-space: normal;
+  }
+}
+
+/* ==========================================================================
+   🎨 Artistic Fluid Paint Script Title (Logo Style)
+   ========================================================================== */
+.about-paint-logo-wrapper {
+  margin-bottom: 24px;
+  display: block;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 25px rgba(217, 70, 239, 0.25));
+}
+
+.about-paint-logo-title {
+  font-family: 'Kaushan Script', 'Satisfy', 'Caveat', 'Great Vibes', cursive !important;
+  font-size: clamp(4.0rem, 8.8vw, 125px);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+  margin: 0 auto;
+  background-image: url('/ultra-sharp-fluid-texture.jpg');
+  background-size: 650px auto;
+  background-position: 50% 25%;
+  background-repeat: repeat;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  -webkit-text-stroke: 0.80px #ffffff;
+  display: inline-block;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .about-paint-logo-title {
+    font-size: clamp(2.8rem, 9.5vw, 4.2rem);
+    background-size: 360px auto;
+    -webkit-text-stroke: 0.65px #ffffff;
+    line-height: 1.15;
+  }
+}
+
+/* ==========================================================================
+   ⚡ Realistic Green Neon Sign Tube Typography (Exact "GLOW" Reference Style)
+   ========================================================================== */
+.neon-sign-wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 6px 0;
+  margin-bottom: 8px;
+}
+
+/* Horizontal black mounting rails behind sign */
+.neon-mounting-rails {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 8px 0;
+  opacity: 0.9;
+}
+
+.neon-mount-bar {
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg, 
+    rgba(1, 15, 6, 0) 0%, 
+    rgba(2, 22, 10, 0.95) 4%, 
+    #052613 20%, 
+    #073b1d 50%, 
+    #052613 80%, 
+    rgba(2, 22, 10, 0.95) 96%, 
+    rgba(1, 15, 6, 0) 100%
+  );
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
+  border-top: 1px solid rgba(34, 197, 94, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.95);
+}
+
+.neon-sign-letters {
+  position: relative;
+  display: inline-block;
+  font-family: 'Tilt Neon', 'Comfortaa', 'Varela Round', cursive, sans-serif;
+  font-size: clamp(2.3rem, 4.4vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: 2.8px;
+  margin: 0;
+  user-select: none;
+  z-index: 1;
+  transition: all 0.35s ease;
+}
+
+.neon-layer {
+  display: block;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Layer 1: Dark Outer Channel Letter Casing & Ambient Green Glow */
+.neon-layer-casing {
+  position: relative;
+  -webkit-text-stroke: 7.5px #011406;
+  paint-order: stroke fill;
+  text-shadow:
+    0 0 12px rgba(34, 197, 94, 0.75),
+    0 0 30px rgba(34, 197, 94, 0.45),
+    0 0 65px rgba(22, 163, 74, 0.35),
+    0 0 100px rgba(21, 128, 61, 0.25);
+  z-index: 1;
+}
+
+/* Layer 2: Dark Emerald Glass Border (Contorno de Vidrio Oscuro) */
+.neon-layer-glass-border {
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-text-stroke: 5.2px #042e13;
+  paint-order: stroke fill;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Layer 3: Darker Emerald Neon Gas Tube Body (Cuerpo Verde Oscuro Translúcido) */
+.neon-layer-tube {
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-text-stroke: 3.4px #15803d;
+  paint-order: stroke fill;
+  text-shadow: 0 0 8px #22c55e, 0 0 16px #15803d;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Layer 4: Inner Green Core Tube Layer */
+.neon-layer-tube-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-text-stroke: 2.2px #16a34a;
+  paint-order: stroke fill;
+  text-shadow: 0 0 4px #22c55e;
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* Layer 5: Fine Electrical Current Line (Filamento de Corriente Interna Blanco Fino) */
+.neon-layer-filament {
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-text-stroke: 1.15px #ffffff;
+  paint-order: stroke fill;
+  text-shadow: 0 0 2px #ffffff, 0 0 5px #bbf7d0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Specular Glints & Hotspots on Glass Curves ("Puntos de Luz / Bombillitas") */
+.neon-hotspot {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, #ffffff 0%, #bbf7d0 35%, rgba(34, 197, 94, 0.8) 70%, transparent 100%);
+  filter: drop-shadow(0 0 3px #ffffff) drop-shadow(0 0 8px #4ade80);
+  z-index: 6;
+  pointer-events: none;
+  animation: neon-hotspot-pulse 2.6s ease-in-out infinite alternate;
+}
+
+/* Hotspot positions across "Proyectos Destacados" */
+.hotspot-p { width: 7px; height: 11px; top: 25%; left: 2.2%; transform: rotate(-15deg); }
+.hotspot-r { width: 6px; height: 9px; top: 38%; left: 7.6%; transform: rotate(20deg); animation-delay: 0.3s; }
+.hotspot-o1 { width: 6px; height: 10px; top: 44%; left: 12.2%; transform: rotate(15deg); animation-delay: 0.6s; }
+.hotspot-y { width: 6px; height: 10px; top: 56%; left: 16.5%; transform: rotate(25deg); animation-delay: 0.9s; }
+.hotspot-e1 { width: 6px; height: 9px; top: 42%; left: 21.8%; transform: rotate(-10deg); animation-delay: 1.2s; }
+.hotspot-c1 { width: 6px; height: 10px; top: 42%; left: 26.5%; transform: rotate(-20deg); animation-delay: 1.5s; }
+.hotspot-t1 { width: 6px; height: 9px; top: 32%; left: 30.5%; animation-delay: 1.8s; }
+.hotspot-o2 { width: 6px; height: 10px; top: 44%; left: 34.5%; transform: rotate(-15deg); animation-delay: 2.1s; }
+.hotspot-s1 { width: 6px; height: 9px; top: 46%; left: 39.2%; transform: rotate(15deg); animation-delay: 2.4s; }
+
+.hotspot-d { width: 7px; height: 13px; top: 25%; left: 48.5%; transform: rotate(10deg); animation-delay: 0.4s; }
+.hotspot-e2 { width: 6px; height: 9px; top: 42%; left: 59.5%; transform: rotate(-10deg); animation-delay: 0.8s; }
+.hotspot-s2 { width: 6px; height: 9px; top: 42%; left: 64.2%; transform: rotate(15deg); animation-delay: 1.1s; }
+.hotspot-t2 { width: 6px; height: 9px; top: 32%; left: 68.2%; animation-delay: 1.4s; }
+.hotspot-a1 { width: 6px; height: 10px; top: 45%; left: 72.8%; transform: rotate(20deg); animation-delay: 1.7s; }
+.hotspot-c2 { width: 6px; height: 10px; top: 42%; left: 77.5%; transform: rotate(-20deg); animation-delay: 2.0s; }
+.hotspot-a2 { width: 6px; height: 10px; top: 45%; left: 82.2%; transform: rotate(-15deg); animation-delay: 2.3s; }
+.hotspot-d2 { width: 7px; height: 13px; top: 25%; left: 86.8%; transform: rotate(10deg); animation-delay: 0.7s; }
+.hotspot-o3 { width: 6px; height: 10px; top: 45%; left: 91.5%; transform: rotate(15deg); animation-delay: 1.3s; }
+.hotspot-s3 { width: 6px; height: 9px; top: 52%; left: 96.2%; transform: rotate(-20deg); animation-delay: 1.9s; }
+
+@keyframes neon-hotspot-pulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 5px #ffffff) drop-shadow(0 0 12px #86efac);
+  }
+}
+
+.neon-sign-wrapper:hover .neon-layer-tube {
+  -webkit-text-stroke: 3.6px #16a34a;
+  text-shadow: 0 0 12px #22c55e, 0 0 24px #15803d;
+}
+
+.neon-sign-wrapper:hover .neon-layer-casing {
+  text-shadow:
+    0 0 18px rgba(34, 197, 94, 0.95),
+    0 0 45px rgba(34, 197, 94, 0.75),
+    0 0 90px rgba(22, 163, 74, 0.55);
+}
