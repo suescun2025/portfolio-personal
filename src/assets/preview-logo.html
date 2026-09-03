@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Bombillo Creativo Neón - Vista Oficial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --card-bg: rgba(15, 23, 42, 0.82);
+      --primary: #38bdf8;
+      --cyan-neon: #00f3ff;
+      --yellow-neon: #ffb800;
+      --border-glow: rgba(56, 189, 248, 0.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(2, 132, 199, 0.15) 0%, transparent 45%),
+        linear-gradient(180deg, #070b14 0%, #090d16 100%);
+      background-attachment: fixed;
+      font-family: 'Outfit', sans-serif;
+      color: #f8fafc;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      text-align: center;
+      max-width: 900px;
+      margin-bottom: 36px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: #38bdf8;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+    }
+    .header h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 0%, #38bdf8 60%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1250px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 580px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-glow);
+      border-radius: 20px;
+      padding: 26px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(56, 189, 248, 0.25);
+    }
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tag {
+      font-size: 0.75rem;
+      font-family: 'Fira Code', monospace;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .img-container {
+      width: 100%;
+      height: 310px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #020617;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .img-container img, .img-container svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+    .img-container:hover img, .img-container:hover svg {
+      transform: scale(1.03);
+    }
+    .checker-bg {
+      background-color: #0c1220;
+      background-image: 
+        linear-gradient(45deg, #131d33 25%, transparent 25%),
+        linear-gradient(-45deg, #131d33 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #131d33 75%),
+        linear-gradient(-45deg, transparent 75%, #131d33 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+    .desc {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      margin-top: auto;
+    }
+    .btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+    }
+    .btn-primary:hover {
+      filter: brightness(1.15);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
+    }
+    .btn-secondary {
+      background: rgba(30, 41, 59, 0.8);
+      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .btn-secondary:hover {
+      background: rgba(51, 65, 85, 0.9);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0284c7;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(10px);
+      z-index: 100;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="badge">✨ Edición de Ultra Precisión</div>
+    <h1>Logo Bombillo Creativo Neón</h1>
+    <p>La mano fue eliminada por completo mediante reconstrucción de fondo bokeh. El logo original (cerebro, filamento, roscas y destellos de neón) se conservó <strong>100% idéntico y sin ninguna alteración</strong>.</p>
+  </div>
+
+  <div class="grid">
+    <!-- Card 1: Foto Limpia Original -->
+    <div class="card">
+      <div class="card-title-row">
+        <h2 class="card-title">📷 1. Foto Limpia Completa</h2>
+        <span class="tag">JPG • 1024x604</span>
+      </div>
+      <div class="img-container">
+        <img src="/bombillo-cerebro-bokeh-cleaned.jpg" alt="Foto limpia sin mano">
+      </div>
+      <p class="desc">La fotografía original con la mano eliminada y el fondo de luces bokeh azul profundo reconstruido de manera continua y natural.</p>
+      <div class="btn-group">
+        <a href="/bombillo-cerebro-bokeh-cleaned.jpg" download="bombillo-cerebro-original-sin-mano.jpg" class="btn btn-primary">⬇ Descargar JPG</a>
+        <button onclick="copyPath('/bombillo-cerebro-bokeh-cleaned.jpg')" class="btn btn-secondary">📋 Copiar Ruta</button>
+      </div>
+    </div>
+
+    <!-- Card 2: Versión Centrada HD -->
+    <div class="card">
+      <div class="card-title-row">
+        <h2 class="card-title">🎯 2. Composición Centrada HD</h2>
+        <span class="tag">JPG • 1200x800</span>
+      </div>
+      <div class="img-container">
+        <img src="/bombillo-cerebro-centered.jpg" alt="Composición centrada">
+      </div>
+      <p class="desc">Versión adaptada con el logo perfectamente centrado en el encuadre sobre fondo bokeh ampliado en alta definición.</p>
+      <div class="btn-group">
+        <a href="/bombillo-cerebro-centered.jpg" download="bombillo-cerebro-centrado-hd.jpg" class="btn btn-primary">⬇ Descargar HD</a>
+        <button onclick="copyPath('/bombillo-cerebro-centered.jpg')" class="btn btn-secondary">📋 Copiar Ruta</button>
+      </div>
+    </div>
+
+    <!-- Card 3: PNG Transparente -->
+    <div class="card">
+      <div class="card-title-row">
+        <h2 class="card-title">🔮 3. Recorte Transparente</h2>
+        <span class="tag">PNG • Alpha Glow</span>
+      </div>
+      <div class="img-container checker-bg">
+        <img src="/logo-cerebro-bombillo.png" alt="Logo transparente" style="max-height: 85%;">
+      </div>
+      <p class="desc">Recorte aislado con canal alfa translúcido y resplandor neón exterior. Listo para superponer sobre cualquier color de fondo o tarjeta.</p>
+      <div class="btn-group">
+        <a href="/logo-cerebro-bombillo.png" download="logo-cerebro-bombillo-transparente.png" class="btn btn-primary">⬇ Descargar PNG</a>
+        <button onclick="copyPath('/logo-cerebro-bombillo.png')" class="btn btn-secondary">📋 Copiar Ruta</button>
+      </div>
+    </div>
+
+    <!-- Card 4: Vector SVG -->
+    <div class="card">
+      <div class="card-title-row">
+        <h2 class="card-title">⚡ 4. Vector Escalable (SVG)</h2>
+        <span class="tag">SVG • Vectorial</span>
+      </div>
+      <div class="img-container" style="background: #060a12; padding: 20px;">
+        <img src="/logo-cerebro-bombillo.svg" alt="Vector SVG" style="max-height: 90%;">
+      </div>
+      <p class="desc">Representación matemática vectorial con filtros SVG nativos de resplandor neón multicapa (`feDropShadow` y `feGaussianBlur`).</p>
+      <div class="btn-group">
+        <a href="/logo-cerebro-bombillo.svg" download="logo-cerebro-bombillo.svg" class="btn btn-primary">⬇ Descargar SVG</a>
+        <button onclick="copyPath('/logo-cerebro-bombillo.svg')" class="btn btn-secondary">📋 Copiar Ruta</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Ruta copiada al portapapeles ✨</div>
+
+  <script>
+    function copyPath(path) {
+      navigator.clipboard.writeText(path).then(() => {
+        const toast = document.getElementById('toast');
+        toast.innerText = 'Ruta copiada: ' + path + ' ✨';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      });
+    }
+  </script>
+</body>
+</html>

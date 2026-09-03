@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparativa Neón Realista - Proyectos Destacados vs GLOW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Tilt+Neon&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #04080e;
+      background-image: 
+        radial-gradient(circle at 50% 20%, rgba(34, 197, 94, 0.08) 0%, transparent 60%),
+        linear-gradient(180deg, #03060a 0%, #060d16 100%);
+      font-family: 'Outfit', sans-serif;
+      color: #fff;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      text-align: center;
+      max-width: 900px;
+      margin-bottom: 36px;
+    }
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #22c55e;
+      text-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+      margin-bottom: 10px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 1.05rem;
+    }
+    .grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .card {
+      background: rgba(10, 18, 30, 0.85);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 20px;
+      padding: 36px 28px;
+      backdrop-filter: blur(16px);
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(34, 197, 94, 0.12);
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 24px;
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+    }
+
+    /* RIELES NEÓN */
+    .neon-sign-wrapper {
+      position: relative;
+      display: inline-block;
+      padding: 12px 16px;
+      margin: 10px 0 20px;
+    }
+    .neon-mounting-rails {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 8px 0;
+      opacity: 0.95;
+    }
+    .neon-mount-bar {
+      height: 6px;
+      width: 100%;
+      background: linear-gradient(90deg, 
+        rgba(1, 15, 6, 0) 0%, 
+        rgba(2, 22, 10, 0.95) 4%, 
+        #052613 20%, 
+        #073b1d 50%, 
+        #052613 80%, 
+        rgba(2, 22, 10, 0.95) 96%, 
+        rgba(1, 15, 6, 0) 100%
+      );
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+      border-top: 1px solid rgba(34, 197, 94, 0.3);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.95);
+    }
+
+    .neon-sign-letters {
+      position: relative;
+      display: inline-block;
+      font-family: 'Tilt Neon', 'Comfortaa', cursive, sans-serif;
+      font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: 2.8px;
+      margin: 0;
+      user-select: none;
+      z-index: 1;
+    }
+    .neon-layer {
+      display: block;
+      color: transparent !important;
+      -webkit-text-fill-color: transparent !important;
+    }
+
+    /* ESTILO REALISTA OPTIMIZADO (Cuerpo Esmeralda Oscuro + Filamento Fino) */
+    .style-realistic .neon-layer-casing {
+      position: relative;
+      -webkit-text-stroke: 7.5px #011406;
+      paint-order: stroke fill;
+      text-shadow:
+        0 0 12px rgba(34, 197, 94, 0.75),
+        0 0 30px rgba(34, 197, 94, 0.45),
+        0 0 65px rgba(22, 163, 74, 0.35),
+        0 0 100px rgba(21, 128, 61, 0.25);
+      z-index: 1;
+    }
+    .style-realistic .neon-layer-glass-border {
+      position: absolute;
+      left: 0;
+      top: 0;
+      -webkit-text-stroke: 5.2px #042e13;
+      paint-order: stroke fill;
+      z-index: 2;
+    }
+    .style-realistic .neon-layer-tube {
+      position: absolute;
+      left: 0;
+      top: 0;
+      -webkit-text-stroke: 3.4px #15803d;
+      paint-order: stroke fill;
+      text-shadow: 0 0 8px #22c55e, 0 0 16px #15803d;
+      z-index: 3;
+    }
+    .style-realistic .neon-layer-tube-inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      -webkit-text-stroke: 2.2px #16a34a;
+      paint-order: stroke fill;
+      text-shadow: 0 0 4px #22c55e;
+      z-index: 4;
+    }
+    .style-realistic .neon-layer-filament {
+      position: absolute;
+      left: 0;
+      top: 0;
+      -webkit-text-stroke: 1.15px #ffffff;
+      paint-order: stroke fill;
+      text-shadow: 0 0 2px #ffffff, 0 0 5px #bbf7d0;
+      z-index: 5;
+    }
+
+    /* Puntos de luz (Hotspots) */
+    .neon-hotspot {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, #ffffff 0%, #bbf7d0 35%, rgba(34, 197, 94, 0.8) 70%, transparent 100%);
+      filter: drop-shadow(0 0 3px #ffffff) drop-shadow(0 0 8px #4ade80);
+      z-index: 6;
+      pointer-events: none;
+      animation: neon-hotspot-pulse 2.6s ease-in-out infinite alternate;
+    }
+    .hotspot-p { width: 7px; height: 11px; top: 25%; left: 2.2%; transform: rotate(-15deg); }
+    .hotspot-r { width: 6px; height: 9px; top: 38%; left: 7.6%; transform: rotate(20deg); animation-delay: 0.3s; }
+    .hotspot-o1 { width: 6px; height: 10px; top: 44%; left: 12.2%; transform: rotate(15deg); animation-delay: 0.6s; }
+    .hotspot-y { width: 6px; height: 10px; top: 56%; left: 16.5%; transform: rotate(25deg); animation-delay: 0.9s; }
+    .hotspot-e1 { width: 6px; height: 9px; top: 42%; left: 21.8%; transform: rotate(-10deg); animation-delay: 1.2s; }
+    .hotspot-c1 { width: 6px; height: 10px; top: 42%; left: 26.5%; transform: rotate(-20deg); animation-delay: 1.5s; }
+    .hotspot-t1 { width: 6px; height: 9px; top: 32%; left: 30.5%; animation-delay: 1.8s; }
+    .hotspot-o2 { width: 6px; height: 10px; top: 44%; left: 34.5%; transform: rotate(-15deg); animation-delay: 2.1s; }
+    .hotspot-s1 { width: 6px; height: 9px; top: 46%; left: 39.2%; transform: rotate(15deg); animation-delay: 2.4s; }
+
+    .hotspot-d { width: 7px; height: 13px; top: 25%; left: 48.5%; transform: rotate(10deg); animation-delay: 0.4s; }
+    .hotspot-e2 { width: 6px; height: 9px; top: 42%; left: 59.5%; transform: rotate(-10deg); animation-delay: 0.8s; }
+    .hotspot-s2 { width: 6px; height: 9px; top: 42%; left: 64.2%; transform: rotate(15deg); animation-delay: 1.1s; }
+    .hotspot-t2 { width: 6px; height: 9px; top: 32%; left: 68.2%; animation-delay: 1.4s; }
+    .hotspot-a1 { width: 6px; height: 10px; top: 45%; left: 72.8%; transform: rotate(20deg); animation-delay: 1.7s; }
+    .hotspot-c2 { width: 6px; height: 10px; top: 42%; left: 77.5%; transform: rotate(-20deg); animation-delay: 2.0s; }
+    .hotspot-a2 { width: 6px; height: 10px; top: 45%; left: 82.2%; transform: rotate(-15deg); animation-delay: 2.3s; }
+    .hotspot-d2 { width: 7px; height: 13px; top: 25%; left: 86.8%; transform: rotate(10deg); animation-delay: 0.7s; }
+    .hotspot-o3 { width: 6px; height: 10px; top: 45%; left: 91.5%; transform: rotate(15deg); animation-delay: 1.3s; }
+    .hotspot-s3 { width: 6px; height: 9px; top: 52%; left: 96.2%; transform: rotate(-20deg); animation-delay: 1.9s; }
+
+    @keyframes neon-hotspot-pulse {
+      0% { opacity: 0.8; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1.25); filter: drop-shadow(0 0 5px #ffffff) drop-shadow(0 0 12px #86efac); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>⚡ Nuevo Neón de Vidrio Translúcido</h1>
+    <p>El interior de las letras ahora es verde esmeralda profundo, permitiendo apreciar nítidamente el filamento de corriente blanco fino y todos los puntos de luz ("bombillitas").</p>
+  </div>
+
+  <div class="grid">
+    <div class="card style-realistic">
+      <span class="badge">✨ Resultado Final Aplicado al Portafolio</span>
+      
+      <div>
+        <div class="neon-sign-wrapper">
+          <div class="neon-mounting-rails">
+            <span class="neon-mount-bar bar-top"></span>
+            <span class="neon-mount-bar bar-bottom"></span>
+          </div>
+
+          <h2 class="neon-sign-letters">
+            <span class="neon-layer neon-layer-casing">Proyectos Destacados</span>
+            <span class="neon-layer neon-layer-glass-border">Proyectos Destacados</span>
+            <span class="neon-layer neon-layer-tube">Proyectos Destacados</span>
+            <span class="neon-layer neon-layer-tube-inner">Proyectos Destacados</span>
+            <span class="neon-layer neon-layer-filament">Proyectos Destacados</span>
+
+            <span class="neon-hotspot hotspot-p"></span>
+            <span class="neon-hotspot hotspot-r"></span>
+            <span class="neon-hotspot hotspot-o1"></span>
+            <span class="neon-hotspot hotspot-y"></span>
+            <span class="neon-hotspot hotspot-e1"></span>
+            <span class="neon-hotspot hotspot-c1"></span>
+            <span class="neon-hotspot hotspot-t1"></span>
+            <span class="neon-hotspot hotspot-o2"></span>
+            <span class="neon-hotspot hotspot-s1"></span>
+            <span class="neon-hotspot hotspot-d"></span>
+            <span class="neon-hotspot hotspot-e2"></span>
+            <span class="neon-hotspot hotspot-s2"></span>
+            <span class="neon-hotspot hotspot-t2"></span>
+            <span class="neon-hotspot hotspot-a1"></span>
+            <span class="neon-hotspot hotspot-c2"></span>
+            <span class="neon-hotspot hotspot-a2"></span>
+            <span class="neon-hotspot hotspot-d2"></span>
+            <span class="neon-hotspot hotspot-o3"></span>
+            <span class="neon-hotspot hotspot-s3"></span>
+          </h2>
+        </div>
+      </div>
+
+      <p style="color: #cbd5e1; font-size: 0.95rem; margin-top: 14px;">
+        Observa cómo el hilo de corriente blanco fino recorre el centro de cada letra y los puntos de luz brillan con alto contraste sobre el cristal esmeralda.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import techmatchImg from './assets/techmatch-preview.png';
+import logoNavbar from './assets/logo-yeferson-suescun-navbar.png';
 import { 
   Code2, 
   Layers, 
@@ -343,7 +344,7 @@ export default function App() {
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img 
-              src="/logo-yeferson-suescun-navbar.png" 
+              src={logoNavbar} 
               alt="Yeferson Suescun" 
               className="nav-logo-brand"
             />
