@@ -340,8 +340,8 @@ export default function App() {
     <div style={{ position: 'relative', minHeight: '100vh' }}>
       <div className="bg-cyber-grid" />
 
-      <nav className="glass-nav" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, padding: '4px 0' }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <nav className="glass-nav">
+        <div className="nav-container">
           <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img 
               src={logoNavbar} 
@@ -351,18 +351,18 @@ export default function App() {
           </a>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }} className="desktop-links">
-            <a href="#inicio" style={{ color: '#cbd5e1', textDecoration: 'none', fontWeight: 500, fontSize: '0.95rem', transition: 'var(--transition)' }}>Inicio</a>
-            <a href="#sobre-mi" style={{ color: '#cbd5e1', textDecoration: 'none', fontWeight: 500, fontSize: '0.95rem', transition: 'var(--transition)' }}>Sobre Mí</a>
-            <a href="#proyectos" style={{ color: '#cbd5e1', textDecoration: 'none', fontWeight: 500, fontSize: '0.95rem', transition: 'var(--transition)' }}>Proyectos</a>
-            <a href="#habilidades" style={{ color: '#cbd5e1', textDecoration: 'none', fontWeight: 500, fontSize: '0.95rem', transition: 'var(--transition)' }}>Habilidades</a>
-            <a href="#contacto" className="btn-primary" style={{ padding: '8px 20px', fontSize: '0.9rem' }}>
-              <Mail size={16} /> Contactar
+            <a href="#inicio" style={{ color: '#cbd5e1', textDecoration: 'none', fontWeight: 500, fontSize: '1rem', transition: 'var(--transition)' }}>Inicio</a>
+            <a href="#sobre-mi" style={{ color: '#cbd5e1', textDecoration: 'none', fontWeight: 500, fontSize: '1rem', transition: 'var(--transition)' }}>Sobre Mí</a>
+            <a href="#proyectos" style={{ color: '#cbd5e1', textDecoration: 'none', fontWeight: 500, fontSize: '1rem', transition: 'var(--transition)' }}>Proyectos</a>
+            <a href="#habilidades" style={{ color: '#cbd5e1', textDecoration: 'none', fontWeight: 500, fontSize: '1rem', transition: 'var(--transition)' }}>Habilidades</a>
+            <a href="#contacto" className="btn-primary" style={{ padding: '10px 22px', fontSize: '0.95rem' }}>
+              <Mail size={17} /> Contactar
             </a>
           </div>
         </div>
       </nav>
 
-      <section id="inicio" className="section-padding" style={{ paddingTop: '130px', paddingBottom: '30px' }}>
+      <section id="inicio" className="section-padding" style={{ paddingTop: '145px', paddingBottom: '30px' }}>
         <div className="container" style={{ maxWidth: '1350px' }}>
           <div>
             <div style={{ marginBottom: '20px' }}>

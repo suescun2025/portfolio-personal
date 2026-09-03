@@ -348,16 +348,20 @@ body {
 
 /* Glass Navbar */
 .glass-nav {
-  position: relative;
-  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
   background: rgba(7, 14, 30, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(56, 189, 248, 0.25);
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.55);
-  min-height: 76px;
+  min-height: 92px;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .glass-nav::before {
@@ -374,29 +378,53 @@ body {
   filter: contrast(1.15) brightness(0.95);
 }
 
+.nav-container {
+  width: 100%;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .nav-logo-brand {
-  height: 64px;
+  height: 84px;
   width: auto;
-  max-width: 290px;
+  max-width: 380px;
   object-fit: contain;
-  margin: 6px 0;
-  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 16px rgba(16, 224, 48, 0.35));
+  margin: 4px 0;
+  filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 18px rgba(16, 224, 48, 0.45));
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
   display: block;
 }
 
 .nav-logo-brand:hover {
   transform: scale(1.06);
-  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.98)) drop-shadow(0 0 22px rgba(16, 224, 48, 0.6));
+  filter: drop-shadow(0 5px 16px rgba(0, 0, 0, 0.98)) drop-shadow(0 0 24px rgba(16, 224, 48, 0.7));
+}
+
+@media (max-width: 1024px) {
+  .nav-container {
+    padding: 0 24px;
+  }
+  .glass-nav {
+    min-height: 82px;
+  }
+  .nav-logo-brand {
+    height: 70px;
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 768px) {
+  .nav-container {
+    padding: 0 16px;
+  }
   .glass-nav {
-    min-height: 64px;
+    min-height: 72px;
   }
   .nav-logo-brand {
-    height: 48px;
-    max-width: 220px;
+    height: 56px;
+    max-width: 240px;
   }
 }
 
