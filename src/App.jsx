@@ -340,7 +340,7 @@ export default function App() {
     <div style={{ position: 'relative', minHeight: '100vh' }}>
       <div className="bg-cyber-grid" />
 
-      <nav className="glass-nav" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, padding: '0' }}>
+      <nav className="glass-nav" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, padding: '4px 0' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img 
@@ -362,7 +362,7 @@ export default function App() {
         </div>
       </nav>
 
-      <section id="inicio" className="section-padding" style={{ paddingTop: '120px', paddingBottom: '30px' }}>
+      <section id="inicio" className="section-padding" style={{ paddingTop: '130px', paddingBottom: '30px' }}>
         <div className="container" style={{ maxWidth: '1350px' }}>
           <div>
             <div style={{ marginBottom: '20px' }}>
