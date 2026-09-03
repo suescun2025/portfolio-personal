@@ -673,7 +673,7 @@ export default function App() {
                   </div>
                 </a>
 
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px', textDecoration: 'none', color: '#fff' }}>
+                <a href="https://www.linkedin.com/in/suescun-suescun-salazar-ba9824304/" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px', textDecoration: 'none', color: '#fff' }}>
                   <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(52, 211, 153, 0.1)', color: '#34d399', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <LinkedinIcon size={22} />
                   </div>
@@ -832,9 +832,10 @@ export default function App() {
           <div style={{ color: '#64748b', fontSize: '0.9rem' }}>
             Diseñado & desarrollado por <strong style={{ color: '#cbd5e1' }}>Yeferson Suescun</strong> — Desarrollador Full Stack © 2026
           </div>
-          <div style={{ display: 'flex', gap: '16px' }}>
-            <a href="https://github.com/suescun2025" target="_blank" rel="noopener noreferrer" style={{ color: '#94a3b8', textDecoration: 'none' }}><GithubIcon size={18} /></a>
-            <a href="mailto:suescunyeferson32@gmail.com" style={{ color: '#94a3b8', textDecoration: 'none' }}><Mail size={18} /></a>
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+            <a href="https://github.com/suescun2025" target="_blank" rel="noopener noreferrer" style={{ color: '#94a3b8', textDecoration: 'none' }} title="GitHub"><GithubIcon size={18} /></a>
+            <a href="https://www.linkedin.com/in/suescun-suescun-salazar-ba9824304/" target="_blank" rel="noopener noreferrer" style={{ color: '#94a3b8', textDecoration: 'none' }} title="LinkedIn"><LinkedinIcon size={18} /></a>
+            <a href="mailto:suescunyeferson32@gmail.com" style={{ color: '#94a3b8', textDecoration: 'none' }} title="Email"><Mail size={18} /></a>
           </div>
         </div>
       </footer>
