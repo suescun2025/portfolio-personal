@@ -387,19 +387,19 @@ body {
 }
 
 .nav-logo-brand {
-  height: 84px;
+  height: 125px;
   width: auto;
-  max-width: 380px;
+  max-width: 520px;
   object-fit: contain;
-  margin: 4px 0;
-  filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 18px rgba(16, 224, 48, 0.45));
+  margin: -16px 0;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 20px rgba(16, 224, 48, 0.45));
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
   display: block;
 }
 
 .nav-logo-brand:hover {
-  transform: scale(1.06);
-  filter: drop-shadow(0 5px 16px rgba(0, 0, 0, 0.98)) drop-shadow(0 0 24px rgba(16, 224, 48, 0.7));
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.98)) drop-shadow(0 0 28px rgba(16, 224, 48, 0.75));
 }
 
 @media (max-width: 1024px) {
@@ -410,8 +410,9 @@ body {
     min-height: 82px;
   }
   .nav-logo-brand {
-    height: 70px;
-    max-width: 300px;
+    height: 95px;
+    max-width: 380px;
+    margin: -8px 0;
   }
 }
 
@@ -420,11 +421,12 @@ body {
     padding: 0 16px;
   }
   .glass-nav {
-    min-height: 72px;
+    min-height: 76px;
   }
   .nav-logo-brand {
-    height: 56px;
-    max-width: 240px;
+    height: 72px;
+    max-width: 280px;
+    margin: 0;
   }
 }
 
