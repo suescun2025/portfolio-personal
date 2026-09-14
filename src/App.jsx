@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import techmatchImg from './assets/techmatch-preview.png';
+import destinosImg from './assets/destinos-turisticos-preview.jpg';
 import logoNavbar from './assets/logo-yeferson-suescun-navbar.png';
 import { 
   Code2, 
@@ -222,20 +223,21 @@ export default function App() {
       ]
     },
     {
-      id: 'portfolio',
+      id: 'destinos-turisticos',
       category: 'frontend',
-      title: 'Portfolio Web Profesional',
-      subtitle: 'Plataforma de Marca Personal',
-      description: 'Sitio web personal desarrollado con React y Vite, con modo oscuro futurista, animaciones de micro-interacción, diseño responsivo y efectos visuales de alta precisión.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
-      tags: ['React 18', 'Vite', 'Vanilla CSS', 'Responsive UI'],
+      title: 'Sitio Web de Destinos Turísticos',
+      subtitle: 'Guía y Álbum Interactivo de Viajes',
+      description: 'Plataforma web interactiva con ranking, guías culturales y álbum fotográfico digital de los principales destinos turísticos del mundo, con diseño responsivo y efectos visuales modernos.',
+      image: destinosImg,
+      tags: ['JavaScript (ES6+)', 'HTML5 Semántico', 'CSS3 Moderno', 'Vite', 'Responsive UI'],
       featured: false,
-      githubUrl: 'https://github.com/suescun2025',
-      liveUrl: '#',
+      githubUrl: 'https://github.com/suescun2025/destinos-turisticos',
+      liveUrl: 'https://suescun2025.github.io/destinos-turisticos/',
       highlights: [
-        '✨ Estética visual cuidada con paleta HSL oscura y efectos de vidrio (glassmorphism).',
-        '📱 Totalmente responsivo para móviles, tablets y monitores ultrawide.',
-        '⚡ Animaciones fluidas a 60fps con bajo consumo de recursos.'
+        '🌍 Álbum interactivo tipo Polaroid con destinos icónicos (Roma, París, Pisa, Venecia).',
+        '🧭 Guías detalladas de viaje, atractivos culturales y recomendaciones.',
+        '📱 Interfaz 100% responsiva y optimizada para todo tipo de pantallas y dispositivos.',
+        '⚡ Animaciones fluidas, efectos de desenfoque y navegación interactiva.'
       ]
     },
     {
@@ -531,20 +533,33 @@ export default function App() {
                     ))}
                   </div>
 
-                  <div style={{ display: 'flex', gap: '12px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+                  <div style={{ display: 'flex', gap: '8px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                     <button 
                       onClick={() => setSelectedProject(project)} 
                       className="btn-primary" 
-                      style={{ flex: 1, justifyContent: 'center', padding: '10px 16px', fontSize: '0.88rem' }}
+                      style={{ flex: 1, justifyContent: 'center', padding: '10px 12px', fontSize: '0.88rem' }}
                     >
                       <Sparkles size={16} /> Ver Detalles
                     </button>
+                    {project.liveUrl && project.liveUrl !== '#' && (
+                      <a 
+                        href={project.liveUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="btn-secondary"
+                        style={{ padding: '10px 12px' }}
+                        title="Ver Sitio Web en Vivo"
+                      >
+                        <ExternalLink size={16} />
+                      </a>
+                    )}
                     <a 
                       href={project.githubUrl} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="btn-secondary"
-                      style={{ padding: '10px 16px' }}
+                      style={{ padding: '10px 12px' }}
+                      title="Ver Código en GitHub"
                     >
                       <GithubIcon size={16} />
                     </a>
@@ -673,13 +688,13 @@ export default function App() {
                   </div>
                 </a>
 
-                <a href="https://www.linkedin.com/in/suescun-suescun-salazar-ba9824304/" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px', textDecoration: 'none', color: '#fff' }}>
+                <a href="https://www.linkedin.com/in/yeferson-suescun-ba9824304/" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px', textDecoration: 'none', color: '#fff' }}>
                   <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(52, 211, 153, 0.1)', color: '#34d399', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <LinkedinIcon size={22} />
                   </div>
                   <div>
                     <div style={{ fontSize: '0.8rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px' }}>LinkedIn</div>
-                    <div style={{ fontWeight: 600 }}>Yeferson Suescun</div>
+                    <div style={{ fontWeight: 600 }}>linkedin.com/in/yeferson-suescun</div>
                   </div>
                 </a>
               </div>
@@ -814,8 +829,25 @@ export default function App() {
               ))}
             </ul>
 
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ flex: 1, justifyContent: 'center' }}>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              {selectedProject.liveUrl && selectedProject.liveUrl !== '#' && (
+                <a 
+                  href={selectedProject.liveUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-primary" 
+                  style={{ flex: 1, justifyContent: 'center' }}
+                >
+                  <ExternalLink size={18} /> Ver Sitio en Vivo
+                </a>
+              )}
+              <a 
+                href={selectedProject.githubUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={selectedProject.liveUrl && selectedProject.liveUrl !== '#' ? "btn-secondary" : "btn-primary"} 
+                style={{ flex: 1, justifyContent: 'center' }}
+              >
                 <GithubIcon size={18} /> Ver Código en GitHub
               </a>
               <button onClick={() => setSelectedProject(null)} className="btn-secondary">
@@ -834,7 +866,7 @@ export default function App() {
           </div>
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
             <a href="https://github.com/suescun2025" target="_blank" rel="noopener noreferrer" style={{ color: '#94a3b8', textDecoration: 'none' }} title="GitHub"><GithubIcon size={18} /></a>
-            <a href="https://www.linkedin.com/in/suescun-suescun-salazar-ba9824304/" target="_blank" rel="noopener noreferrer" style={{ color: '#94a3b8', textDecoration: 'none' }} title="LinkedIn"><LinkedinIcon size={18} /></a>
+            <a href="https://www.linkedin.com/in/yeferson-suescun-ba9824304/" target="_blank" rel="noopener noreferrer" style={{ color: '#94a3b8', textDecoration: 'none' }} title="LinkedIn"><LinkedinIcon size={18} /></a>
             <a href="mailto:suescunyeferson32@gmail.com" style={{ color: '#94a3b8', textDecoration: 'none' }} title="Email"><Mail size={18} /></a>
           </div>
         </div>

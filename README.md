@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Live Demo](https://img.shields.io/badge/Demo%20en%20Vivo-suescun2025.github.io-34d399?style=for-the-badge&logo=googlechrome&logoColor=white)](https://suescun2025.github.io/portfolio-personal/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Yeferson%20Suescun-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/suescun-suescun-salazar-ba9824304/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Yeferson%20Suescun-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yeferson-suescun-ba9824304/)
 [![Email](https://img.shields.io/badge/Email-suescunyeferson32@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:suescunyeferson32@gmail.com)
 
 </div>
@@ -71,6 +71,6 @@ npm run build
 ## 👤 Contacto
 
 * **Autor:** Yeferson Suescun
-* **LinkedIn:** [linkedin.com/in/suescun-suescun-salazar-ba9824304](https://www.linkedin.com/in/suescun-suescun-salazar-ba9824304/)
+* **LinkedIn:** [linkedin.com/in/yeferson-suescun-ba9824304](https://www.linkedin.com/in/yeferson-suescun-ba9824304/)
 * **Email:** [suescunyeferson32@gmail.com](mailto:suescunyeferson32@gmail.com)
 * **GitHub:** [@suescun2025](https://github.com/suescun2025)
