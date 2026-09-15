@@ -214,7 +214,7 @@ export default function App() {
       tags: ['React', 'Django REST', 'Python', 'SQLite / Postgres', 'Glassmorphism'],
       featured: true,
       githubUrl: 'https://github.com/suescun2025/Proyecto-final-desarrollo-Full-Stack',
-      liveUrl: 'http://127.0.0.1:8000',
+      liveUrl: 'https://techmatch-4gv0.onrender.com/',
       highlights: [
         '🔍 Asistente inteligente que cruza compatibilidad técnica de más de 50 marcas y modelos.',
         '🎨 Personalizador interactivo 3D con ajustes de encuadre, zoom, rotación 90° y desplazamiento X/Y.',
@@ -503,7 +503,7 @@ export default function App() {
           {/* Project Cards Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '32px' }}>
             {filteredProjects.map((project) => {
-              const projectLink = (project.liveUrl && project.liveUrl !== '#' && !project.liveUrl.startsWith('http://127.0.0.1'))
+              const projectLink = (project.liveUrl && project.liveUrl !== '#')
                 ? project.liveUrl
                 : project.githubUrl;
 
@@ -559,7 +559,7 @@ export default function App() {
                       >
                         <Sparkles size={16} /> Ver Detalles
                       </button>
-                      {project.liveUrl && project.liveUrl !== '#' && !project.liveUrl.startsWith('http://127.0.0.1') && (
+                      {project.liveUrl && project.liveUrl !== '#' && (
                         <a 
                           href={project.liveUrl} 
                           target="_blank" 
