@@ -239,23 +239,6 @@ export default function App() {
         '📱 Interfaz 100% responsiva y optimizada para todo tipo de pantallas y dispositivos.',
         '⚡ Animaciones fluidas, efectos de desenfoque y navegación interactiva.'
       ]
-    },
-    {
-      id: 'api-services',
-      category: 'backend',
-      title: 'API REST & Servicio de Notificaciones Email',
-      subtitle: 'Arquitectura de Backend',
-      description: 'Sistema backend modular con Django REST Framework para la gestión de productos, órdenes de compra y envío automático de comprobantes por correo electrónico.',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
-      tags: ['Python', 'Django REST', 'Resend Email API', 'SQLite'],
-      featured: false,
-      githubUrl: 'https://github.com/suescun2025/Proyecto-final-desarrollo-Full-Stack',
-      liveUrl: '#',
-      highlights: [
-        '✉️ Integración segura de envíos SMTP y Resend API para confirmación instantánea.',
-        '🛡️ Filtros parametrizados en el ORM para prevenir inyecciones SQL.',
-        '📊 Endpoints serializados para marcas, categorías y filtrado de stock.'
-      ]
     }
   ];
 
@@ -477,7 +460,7 @@ export default function App() {
 
             {/* Filter Tabs */}
             <div style={{ display: 'flex', gap: '8px', background: 'rgba(15, 23, 42, 0.6)', padding: '6px', borderRadius: 'var(--radius-full)', border: '1px solid rgba(255,255,255,0.08)' }}>
-              {['all', 'fullstack', 'frontend', 'backend'].map((tab) => (
+              {['all', 'fullstack', 'frontend'].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
@@ -500,8 +483,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* Project Cards Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '32px' }}>
+          {/* Project Cards Grid — 2 Columns (50% / 50%) */}
+          <div className="projects-grid-two-col">
             {filteredProjects.map((project) => {
               const projectLink = (project.liveUrl && project.liveUrl !== '#')
                 ? project.liveUrl
