@@ -502,71 +502,90 @@ export default function App() {
 
           {/* Project Cards Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '32px' }}>
-            {filteredProjects.map((project) => (
-              <div key={project.id} className="glass-card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
-                  />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9, 13, 22, 0.95), transparent 70%)' }} />
-                  <div style={{ position: 'absolute', top: '16px', right: '16px' }}>
-                    <span className="badge-tech" style={{ background: 'rgba(9, 13, 22, 0.8)', borderColor: 'var(--primary)' }}>
-                      {project.category.toUpperCase()}
-                    </span>
-                  </div>
-                </div>
+            {filteredProjects.map((project) => {
+              const projectLink = (project.liveUrl && project.liveUrl !== '#' && !project.liveUrl.startsWith('http://127.0.0.1'))
+                ? project.liveUrl
+                : project.githubUrl;
 
-                <div style={{ padding: '28px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ color: '#38bdf8', fontSize: '0.85rem', fontWeight: 600, fontFamily: 'var(--font-mono)', marginBottom: '6px' }}>
-                    {project.subtitle}
-                  </div>
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '12px' }}>{project.title}</h3>
-                  <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '20px', flex: 1 }}>
-                    {project.description}
-                  </p>
+              return (
+                <div key={project.id} className="glass-card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                  <a 
+                    href={projectLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-image-link"
+                    title={`Abrir ${project.title} en una nueva pestaña`}
+                  >
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="project-card-image"
+                    />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9, 13, 22, 0.95), transparent 70%)', zIndex: 2 }} />
+                    <div style={{ position: 'absolute', top: '16px', right: '16px', zIndex: 3 }}>
+                      <span className="badge-tech" style={{ background: 'rgba(9, 13, 22, 0.85)', borderColor: 'var(--primary)' }}>
+                        {project.category.toUpperCase()}
+                      </span>
+                    </div>
 
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
-                    {project.tags.map((tag, i) => (
-                      <span key={i} className="badge-tech" style={{ fontSize: '0.78rem' }}>{tag}</span>
-                    ))}
-                  </div>
+                    <div className="project-image-hover-overlay">
+                      <div className="project-hover-badge">
+                        <ExternalLink size={16} />
+                        <span>Abrir Proyecto ↗</span>
+                      </div>
+                    </div>
+                  </a>
 
-                  <div style={{ display: 'flex', gap: '8px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                    <button 
-                      onClick={() => setSelectedProject(project)} 
-                      className="btn-primary" 
-                      style={{ flex: 1, justifyContent: 'center', padding: '10px 12px', fontSize: '0.88rem' }}
-                    >
-                      <Sparkles size={16} /> Ver Detalles
-                    </button>
-                    {project.liveUrl && project.liveUrl !== '#' && (
+                  <div style={{ padding: '28px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ color: '#38bdf8', fontSize: '0.85rem', fontWeight: 600, fontFamily: 'var(--font-mono)', marginBottom: '6px' }}>
+                      {project.subtitle}
+                    </div>
+                    <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '12px' }}>{project.title}</h3>
+                    <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '20px', flex: 1 }}>
+                      {project.description}
+                    </p>
+
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
+                      {project.tags.map((tag, i) => (
+                        <span key={i} className="badge-tech" style={{ fontSize: '0.78rem' }}>{tag}</span>
+                      ))}
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '8px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+                      <button 
+                        onClick={() => setSelectedProject(project)} 
+                        className="btn-primary" 
+                        style={{ flex: 1, justifyContent: 'center', padding: '10px 12px', fontSize: '0.88rem' }}
+                      >
+                        <Sparkles size={16} /> Ver Detalles
+                      </button>
+                      {project.liveUrl && project.liveUrl !== '#' && !project.liveUrl.startsWith('http://127.0.0.1') && (
+                        <a 
+                          href={project.liveUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="btn-secondary"
+                          style={{ padding: '10px 12px' }}
+                          title="Ver Sitio Web en Vivo"
+                        >
+                          <ExternalLink size={16} />
+                        </a>
+                      )}
                       <a 
-                        href={project.liveUrl} 
+                        href={project.githubUrl} 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="btn-secondary"
                         style={{ padding: '10px 12px' }}
-                        title="Ver Sitio Web en Vivo"
+                        title="Ver Código en GitHub"
                       >
-                        <ExternalLink size={16} />
+                        <GithubIcon size={16} />
                       </a>
-                    )}
-                    <a 
-                      href={project.githubUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="btn-secondary"
-                      style={{ padding: '10px 12px' }}
-                      title="Ver Código en GitHub"
-                    >
-                      <GithubIcon size={16} />
-                    </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
