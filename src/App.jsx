@@ -1,32 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
+import yefersonProfile from './assets/yeferson-profile.png';
 import techmatchImg from './assets/techmatch-preview.png';
 import destinosImg from './assets/destinos-turisticos-preview.jpg';
-import logoNavbar from './assets/logo-yeferson-suescun-navbar.png';
 import { 
-  Code2, 
   Layers, 
-  Database, 
   ExternalLink, 
   Mail, 
   Sparkles, 
-  Terminal, 
-  Cpu, 
   CheckCircle2, 
   Send, 
   Menu, 
   X, 
-  ChevronRight,
-  Monitor,
-  Server,
-  Zap,
-  Globe,
-  ArrowUpRight,
-  ShieldCheck,
-  FolderGit2,
-  Loader2,
-  Copy,
-  Check
+  ArrowUpRight, 
+  Loader2, 
+  Copy, 
+  Check,
+  Bookmark,
+  Compass,
+  Cpu
 } from 'lucide-react';
 import {
   ReactLogo,
@@ -38,7 +30,6 @@ import {
   GitGithubLogo,
   RestApiLogo
 } from './components/TechLogos';
-import { NeonSignTitle } from './components/NeonSignTitle';
 
 const GithubIcon = ({ size = 20, color = 'currentColor' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -52,61 +43,6 @@ const LinkedinIcon = ({ size = 20, color = 'currentColor' }) => (
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
     <rect x="2" y="9" width="4" height="12" />
     <circle cx="4" cy="4" r="2" />
-  </svg>
-);
-
-const CustomLiquidLetterC = () => (
-  <svg 
-    className="custom-letter-c-svg" 
-    viewBox="0 0 100 110" 
-    style={{ 
-      display: 'inline-block', 
-      height: '0.88em', 
-      verticalAlign: '-0.04em', 
-      marginRight: '-0.05em',
-      overflow: 'visible'
-    }}
-  >
-    <defs>
-      <linearGradient id="c-aurora-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#ff007f" />
-        <stop offset="35%" stopColor="#00f3ff" />
-        <stop offset="70%" stopColor="#00ffaa" />
-        <stop offset="100%" stopColor="#ffe600" />
-      </linearGradient>
-      <filter id="c-aurora-blur" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="3.5" result="blur" />
-        <feComponentTransfer>
-          <feFuncA type="linear" slope="1.5" />
-        </feComponentTransfer>
-      </filter>
-    </defs>
-    <path
-      d="M 60 2 C 25 2, -8 28, 2 62 C 10 82, -2 95, 28 108 C 48 116, 78 108, 92 95"
-      fill="none"
-      stroke="url(#c-aurora-grad)"
-      strokeWidth="18"
-      strokeLinecap="round"
-      filter="url(#c-aurora-blur)"
-    />
-    <path
-      d="M 82 24 
-         C 70 8, 48 5, 32 15 
-         C 20 23, 14 34, 18 46 
-         C 26 56, 36 60, 24 72 
-         C 14 82, 28 98, 48 100 
-         C 68 102, 82 90, 86 78 
-         L 66 74 
-         C 62 81, 54 84, 46 83 
-         C 36 82, 30 75, 36 65 
-         C 44 52, 38 42, 32 34 
-         C 28 28, 35 21, 46 20 
-         C 56 19, 66 23, 70 30 
-         Z"
-      fill="#000000"
-      stroke="#000000"
-      strokeWidth="2.5"
-    />
   </svg>
 );
 
@@ -131,7 +67,6 @@ export default function App() {
     return { name: '', email: '', message: '' };
   });
 
-  // Automatically remember draft as user types
   useEffect(() => {
     try {
       if (formData.name || formData.email || formData.message) {
@@ -180,9 +115,8 @@ export default function App() {
         })
       });
 
-      const result = await response.json();
+      await response.json();
 
-      // Trigger celebration confetti
       confetti({
         particleCount: 120,
         spread: 80,
@@ -211,7 +145,7 @@ export default function App() {
       subtitle: 'Proyecto Final de Máster (PFM)',
       description: 'Plataforma web híbrida de comercio electrónico para accesorios y consumibles tecnológicos. Integra un Asistente Inteligente de Compatibilidad marca/modelo, Personalizador 3D de Carcasas MagSafe en tiempo real y estudio de arte.',
       image: techmatchImg,
-      tags: ['React', 'Django REST', 'Python', 'SQLite / Postgres', 'Glassmorphism'],
+      tags: ['React.js', 'Django REST', 'Python', 'PostgreSQL / SQLite', 'UI Editorial'],
       featured: true,
       githubUrl: 'https://github.com/suescun2025/Proyecto-final-desarrollo-Full-Stack',
       liveUrl: 'https://techmatch-4gv0.onrender.com/',
@@ -252,238 +186,299 @@ export default function App() {
       category: 'Frontend', 
       level: 90, 
       icon: ReactLogo, 
-      accentColor: '#61DAFB',
-      glowColor: 'rgba(97, 218, 251, 0.3)',
-      gradient: 'linear-gradient(90deg, #0284c7, #61DAFB)'
+      accentColor: '#e5b95c'
     },
     { 
       name: 'JavaScript (ES6+)', 
       category: 'Frontend', 
       level: 92, 
       icon: JavaScriptLogo, 
-      accentColor: '#F7DF1E',
-      glowColor: 'rgba(247, 223, 30, 0.3)',
-      gradient: 'linear-gradient(90deg, #d97706, #F7DF1E)'
+      accentColor: '#e5b95c'
     },
     { 
-      name: 'HTML5 & CSS3 (Glassmorphism)', 
+      name: 'HTML5 & CSS3 Avanzado', 
       category: 'Frontend', 
       level: 95, 
       icon: HtmlCssLogo, 
-      accentColor: '#E34F26',
-      glowColor: 'rgba(227, 79, 38, 0.3)',
-      gradient: 'linear-gradient(90deg, #E34F26, #1572B6)'
+      accentColor: '#e5b95c'
     },
     { 
       name: 'Python 3.11+', 
       category: 'Backend', 
       level: 88, 
       icon: PythonLogo, 
-      accentColor: '#387eb8',
-      glowColor: 'rgba(56, 126, 184, 0.3)',
-      gradient: 'linear-gradient(90deg, #387eb8, #ffd438)'
+      accentColor: '#e5b95c'
     },
     { 
       name: 'Django / Django REST', 
       category: 'Backend', 
       level: 90, 
       icon: DjangoLogo, 
-      accentColor: '#44B78B',
-      glowColor: 'rgba(68, 183, 139, 0.3)',
-      gradient: 'linear-gradient(90deg, #092E20, #44B78B)'
+      accentColor: '#e5b95c'
     },
     { 
       name: 'PostgreSQL / SQLite', 
       category: 'Databases', 
       level: 85, 
       icon: PostgresSqliteLogo, 
-      accentColor: '#336791',
-      glowColor: 'rgba(51, 103, 145, 0.35)',
-      gradient: 'linear-gradient(90deg, #336791, #00ADEF)'
+      accentColor: '#e5b95c'
     },
     { 
       name: 'Git & GitHub', 
       category: 'Tools', 
       level: 90, 
       icon: GitGithubLogo, 
-      accentColor: '#F05032',
-      glowColor: 'rgba(240, 80, 50, 0.3)',
-      gradient: 'linear-gradient(90deg, #F05032, #9333ea)'
+      accentColor: '#e5b95c'
     },
     { 
       name: 'APIs RESTful', 
       category: 'Backend', 
       level: 92, 
       icon: RestApiLogo, 
-      accentColor: '#38bdf8',
-      glowColor: 'rgba(56, 189, 248, 0.35)',
-      gradient: 'linear-gradient(90deg, #0284c7, #a855f7)'
+      accentColor: '#e5b95c'
     }
   ];
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh' }}>
-      <div className="bg-cyber-grid" />
+      <div className="bg-canvas-texture" />
 
+      {/* BARRA DE NAVEGACIÓN */}
       <nav className="glass-nav">
         <div className="nav-container">
-          <a href="#" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-            <img 
-              src={logoNavbar} 
-              alt="Yeferson Suescun" 
-              className="nav-logo-brand"
-            />
+          <a href="#inicio" className="nav-brand-title" style={{ textDecoration: 'none' }}>
+            <span>YEFERSON</span> SUESCUN
           </a>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }} className="desktop-links">
-            <a href="#inicio" style={{ color: '#cbd5e1', textDecoration: 'none', fontWeight: 500, fontSize: '1rem', transition: 'var(--transition)' }}>Inicio</a>
-            <a href="#sobre-mi" style={{ color: '#cbd5e1', textDecoration: 'none', fontWeight: 500, fontSize: '1rem', transition: 'var(--transition)' }}>Sobre Mí</a>
-            <a href="#proyectos" style={{ color: '#cbd5e1', textDecoration: 'none', fontWeight: 500, fontSize: '1rem', transition: 'var(--transition)' }}>Proyectos</a>
-            <a href="#habilidades" style={{ color: '#cbd5e1', textDecoration: 'none', fontWeight: 500, fontSize: '1rem', transition: 'var(--transition)' }}>Habilidades</a>
-            <a href="#contacto" className="btn-primary" style={{ padding: '10px 22px', fontSize: '0.95rem' }}>
-              <Mail size={17} /> Contactar
+          <div className="nav-links desktop-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">Sobre Mí</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#contacto" className="btn-primary" style={{ padding: '8px 20px', fontSize: '0.88rem' }}>
+              <Mail size={16} /> Contactar
             </a>
           </div>
+
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="btn-icon"
+            style={{ display: 'none' }}
+            aria-label="Abrir Menú"
+          >
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
+
+        {/* Mobile Dropdown */}
+        {mobileMenuOpen && (
+          <div style={{ paddingTop: '16px', paddingBottom: '8px', display: 'flex', flexDirection: 'column', gap: '14px', borderTop: '1px solid var(--border-gold)', marginTop: '12px' }}>
+            <a href="#inicio" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 600 }}>Inicio</a>
+            <a href="#sobre-mi" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 600 }}>Sobre Mí</a>
+            <a href="#proyectos" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 600 }}>Proyectos</a>
+            <a href="#habilidades" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 600 }}>Habilidades</a>
+            <a href="#contacto" onClick={() => setMobileMenuOpen(false)} className="btn-primary" style={{ justifyContent: 'center' }}>
+              <Mail size={16} /> Contactar
+            </a>
+          </div>
+        )}
       </nav>
 
-      <section id="inicio" className="section-padding" style={{ paddingTop: '145px', paddingBottom: '30px' }}>
-        <div className="container" style={{ maxWidth: '1350px' }}>
-          <div>
-            <div style={{ marginBottom: '20px' }}>
-              <span className="status-pill">
-                <span className="dot-pulse" />
-                Disponible para nuevos proyectos & ofertas laborales
-              </span>
+      {/* HERO SECTION — VENTANA EDITORIAL PRINCIPAL */}
+      <section id="inicio" className="section-padding" style={{ paddingTop: '130px', paddingBottom: '40px' }}>
+        <div className="container">
+          <div className="editorial-window" style={{ padding: 'clamp(28px, 4vw, 56px)' }}>
+            
+            {/* Cinta / Ribbon decorativo */}
+            <div className="editorial-ribbon" title="Senior Software Profile">
+              <Bookmark size={18} />
             </div>
 
-            <div className="papercut-hero-title-wrapper">
-              <h1 className="papercut-hero-title">
-                <span style={{ display: 'block' }}>Creando el equilibrio perfecto</span>
-                <span style={{ display: 'block' }}>entre Diseño Web Futurista &amp;</span>
-                <span style={{ display: 'block' }}>Arquitecturas Full Stack sólidas.</span>
-              </h1>
-            </div>
+            {/* Arcos concéntricos de fondo */}
+            <div className="gold-geometric-rings" style={{ width: '420px', height: '420px', top: '-100px', right: '-100px', opacity: 0.6 }} />
 
-            <p style={{ fontSize: '1.12rem', color: '#fde047', lineHeight: 1.68, marginBottom: '16px', maxWidth: '840px', textShadow: '0 2px 12px rgba(0,0,0,0.9)' }}>
-              Soy <strong style={{ color: '#fde047' }}>Yeferson Suescun</strong>, desarrollador web Full Stack especializado en la ingeniería de aplicaciones modernas, interactivas y de alto rendimiento. En la capa de <strong>frontend</strong>, domino los estándares fundamentales de <strong style={{ color: '#ff2a85' }}>HTML5 semántico, CSS3 avanzado y JavaScript (ES6+)</strong>, potenciando el desarrollo con el ecosistema de <strong style={{ color: '#ff2a85' }}>React.js</strong>, <strong>Vite</strong> y arquitectura <strong>Single Page Applications (SPA)</strong> para crear interfaces reactivas, fluidas y optimizadas. En el <strong>backend</strong>, diseño y estructuro la lógica del servidor con <strong style={{ color: '#818cf8' }}>Python &amp; Django REST Framework</strong>, desarrollando APIs RESTful seguras, arquitecturas modulares y gestión eficiente de bases de datos relacionales con <strong style={{ color: '#34d399' }}>PostgreSQL y SQLite</strong>.
-            </p>
+            <div className="hero-flex-layout" style={{ display: 'flex', alignItems: 'center', gap: '50px', position: 'relative', zIndex: 2 }}>
+              
+              {/* Fotografía de Yeferson con Marco Arqueado Editorial */}
+              <div className="portrait-arch-container" style={{ flexShrink: 0 }}>
+                {/* Patrón diagonal de fondo esquina superior derecha */}
+                <div className="portrait-stripe-box-tr diagonal-stripes-accent" />
+                
+                {/* Patrón diagonal de fondo esquina inferior izquierda */}
+                <div className="portrait-stripe-box diagonal-stripes-accent" />
 
-            <div style={{ marginBottom: '28px', maxWidth: '820px', padding: '18px 22px', background: 'rgba(15, 23, 42, 0.65)', borderLeft: '4px solid #38bdf8', borderRadius: '0 var(--radius-md) var(--radius-md) 0', boxShadow: '0 8px 30px rgba(0,0,0,0.3)', backdropFilter: 'blur(10px)' }}>
-              <p style={{ fontSize: '1.08rem', color: '#f8fafc', lineHeight: 1.65, fontWeight: 500 }}>
-                Destaco como un desarrollador Full Stack con un perfil marcadamente enfocado en producto y experiencia de usuario (UX). No me limito a hacer que el código funcione en el servidor; me aseguro de que la experiencia completa sea impactante, nítida, fluida y memorable para el usuario final.
-              </p>
-            </div>
+                {/* Arco externo fino */}
+                <div className="portrait-outer-arch" />
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center' }}>
-              <a href="#proyectos" className="btn-primary">
-                <Sparkles size={18} /> Ver Mis Proyectos
-              </a>
-              <a href="https://github.com/suescun2025" target="_blank" rel="noopener noreferrer" className="btn-secondary">
-                <GithubIcon size={18} /> GitHub Profile <ArrowUpRight size={16} />
-              </a>
-              <a href="mailto:suescunyeferson32@gmail.com" className="btn-secondary">
-                <Mail size={18} /> Email
-              </a>
-            </div>
+                {/* Marco de la Foto */}
+                <div className="portrait-arch-frame">
+                  <img 
+                    src={yefersonProfile} 
+                    alt="Yeferson Suescun — Desarrollador Full Stack" 
+                  />
+                </div>
+              </div>
 
-            {/* Quick Tech Badges Bar */}
-            <div style={{ marginTop: '36px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.08)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px' }}>
-              <span style={{ fontSize: '0.85rem', color: '#e2e8f0', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 700, marginRight: '12px' }}>Tech Stack:</span>
-              <span className="badge-tech"><ReactLogo size={16} /> React.js</span>
-              <span className="badge-tech"><JavaScriptLogo size={16} /> JavaScript</span>
-              <span className="badge-tech"><PythonLogo size={16} /> Python</span>
-              <span className="badge-tech"><DjangoLogo size={16} /> Django REST</span>
-              <span className="badge-tech"><PostgresSqliteLogo size={18} /> PostgreSQL / SQLite</span>
-              <span className="badge-tech"><HtmlCssLogo size={18} /> HTML5 &amp; CSS3</span>
+              {/* Contenido Editorial del Hero */}
+              <div style={{ flex: 1 }}>
+                <div style={{ marginBottom: '16px' }}>
+                  <span className="status-pill">
+                    <span className="dot-pulse" />
+                    Disponible para nuevos proyectos &amp; oportunidades laborales
+                  </span>
+                </div>
+
+                <div className="editorial-tag">PORTAFOLIO PROFESIONAL</div>
+                <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.2rem, 4.5vw, 3.4rem)', fontWeight: 800, lineHeight: 1.12, letterSpacing: '-0.5px', marginBottom: '18px', color: 'var(--text-primary)' }}>
+                  YEFERSON SUESCUN <br />
+                  <span style={{ color: 'var(--accent-gold-light)', fontWeight: 700, fontSize: '0.85em' }}>
+                    DESARROLLADOR FULL STACK
+                  </span>
+                </h1>
+
+                <p style={{ fontSize: '1.08rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '20px', maxWidth: '780px' }}>
+                  Especializado en la ingeniería de aplicaciones web modernas, interactivas y de alto rendimiento. En el <strong>frontend</strong> desarrollo con <strong style={{ color: 'var(--accent-gold-light)' }}>React.js, JavaScript (ES6+), HTML5 y CSS3 avanzado</strong> bajo arquitecturas SPA fluidas. En el <strong>backend</strong> diseño APIs robustas con <strong style={{ color: 'var(--accent-gold-light)' }}>Python &amp; Django REST Framework</strong> y gestión eficiente de bases de datos relacionales con <strong style={{ color: 'var(--accent-gold-light)' }}>PostgreSQL y SQLite</strong>.
+                </p>
+
+                {/* Nota de Enfoque UX & Producto */}
+                <div style={{ marginBottom: '28px', padding: '16px 20px', background: 'var(--bg-card-nested)', borderLeft: '3px solid var(--accent-gold)', borderRadius: '0 var(--radius-md) var(--radius-md) 0' }}>
+                  <p style={{ fontSize: '0.98rem', color: 'var(--text-primary)', lineHeight: 1.6, margin: 0 }}>
+                    Enfoque integral en producto y experiencia de usuario (UX): unifico la solidez del código en el servidor con interfaces agradables, intuitivas y memorables.
+                  </p>
+                </div>
+
+                {/* Botones de Acción */}
+                <div className="hero-actions-group" style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', alignItems: 'center' }}>
+                  <a href="#proyectos" className="btn-primary">
+                    <Sparkles size={18} /> Ver Mis Proyectos
+                  </a>
+                  <a href="https://github.com/suescun2025" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                    <GithubIcon size={18} /> GitHub <ArrowUpRight size={16} />
+                  </a>
+                  <a href="https://www.linkedin.com/in/yeferson-suescun-ba9824304/" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                    <LinkedinIcon size={18} /> LinkedIn <ArrowUpRight size={16} />
+                  </a>
+                  <a href="mailto:suescunyeferson32@gmail.com" className="btn-secondary">
+                    <Mail size={18} /> Email
+                  </a>
+                </div>
+
+                {/* Quick Tech Badges */}
+                <div style={{ marginTop: '28px', paddingTop: '18px', borderTop: '1px solid rgba(200, 155, 60, 0.2)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px' }}>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 700, marginRight: '6px' }}>Stack Clave:</span>
+                  <span className="badge-tech"><ReactLogo size={15} /> React.js</span>
+                  <span className="badge-tech"><JavaScriptLogo size={15} /> JavaScript</span>
+                  <span className="badge-tech"><PythonLogo size={15} /> Python</span>
+                  <span className="badge-tech"><DjangoLogo size={15} /> Django REST</span>
+                  <span className="badge-tech"><PostgresSqliteLogo size={16} /> PostgreSQL / SQLite</span>
+                  <span className="badge-tech"><HtmlCssLogo size={16} /> HTML5 &amp; CSS3</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SOBRE MÍ / ABOUT ME SECTION */}
+      {/* SOBRE MÍ / FILOSOFÍA DE TRABAJO */}
       <section id="sobre-mi" className="section-padding">
         <div className="container">
-          <div className="about-paint-logo-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%', marginBottom: '16px' }}>
-            <h2 className="about-paint-logo-title">
-              Sobre Mí <br />
-              &amp; <br />
-              Mi Filosofía de Trabajo
-            </h2>
+          <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+            <div className="editorial-tag">FILOSOFÍA DE TRABAJO</div>
+            <h2 className="section-title">Sobre Mí &amp; Visión Profesional</h2>
+            <p className="section-subtitle" style={{ margin: '0 auto' }}>
+              Así es como concibo y construyo productos digitales como Desarrollador Full Stack.
+            </p>
           </div>
-          <p className="section-subtitle" style={{ textAlign: 'center', margin: '0 auto 32px auto' }}>
-            Así es como concibo y construyo productos digitales como Desarrollador Full Stack.
-          </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
-            <div className="glass-card card-aesthetic-flower" style={{ padding: '32px' }}>
-              <h3 style={{ fontSize: '1.2rem', marginBottom: '12px', fontWeight: 600 }}>Exigencia Estética & Atención al Detalle</h3>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6, fontSize: '0.92rem' }}>
-                Aplico una rigurosa atención al detalle y un alto estándar estético en cada fase del desarrollo. Integro soluciones de diseño innovadoras centradas en optimizar la experiencia de usuario, creando interfaces intuitivas y atractivas que despiertan el interés de las personas y hacen que se sientan cómodas y satisfechas al interactuar con la aplicación.
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '24px' }}>
+            <div className="glass-card" style={{ padding: '32px', overflow: 'hidden' }}>
+              <div className="diagonal-stripes-muted" style={{ position: 'absolute', top: 0, right: 0, width: '60px', height: '60px', borderRadius: '0 var(--radius-lg) 0 30px' }} />
+              <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'var(--bg-card-nested)', border: '1px solid var(--border-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-gold-light)', marginBottom: '20px' }}>
+                <Compass size={22} />
+              </div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '12px', fontWeight: 700, color: 'var(--text-primary)' }}>Exigencia Estética &amp; Atención al Detalle</h3>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.94rem' }}>
+                Aplico una rigurosa atención al detalle y un alto estándar estético en cada fase del desarrollo. Integro soluciones de diseño centradas en optimizar la experiencia de usuario, creando interfaces intuitivas y atractivas que despiertan el interés y generan satisfacción al interactuar con la aplicación.
               </p>
             </div>
 
-            <div className="glass-card card-creative-bulb" style={{ padding: '32px' }}>
-              <h3 style={{ fontSize: '1.2rem', marginBottom: '12px', fontWeight: 600 }}>Creatividad Orientada a Soluciones Reales</h3>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6, fontSize: '0.92rem' }}>
-                Entiendo la creatividad como la capacidad de identificar las necesidades esenciales del usuario y traducirlas en soluciones técnicas precisas. Desarrollo funcionalidades pensadas para resolver problemas reales, garantizando que cada interacción y respuesta en los dispositivos funcione de manera impecable, eficiente y orientada a aportar un valor genuino.
+            <div className="glass-card" style={{ padding: '32px', overflow: 'hidden' }}>
+              <div className="diagonal-stripes-muted" style={{ position: 'absolute', top: 0, right: 0, width: '60px', height: '60px', borderRadius: '0 var(--radius-lg) 0 30px' }} />
+              <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'var(--bg-card-nested)', border: '1px solid var(--border-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-gold-light)', marginBottom: '20px' }}>
+                <Sparkles size={22} />
+              </div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '12px', fontWeight: 700, color: 'var(--text-primary)' }}>Creatividad Orientada a Soluciones Reales</h3>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.94rem' }}>
+                Entiendo la creatividad como la capacidad de identificar las necesidades esenciales del usuario y traducirlas en soluciones técnicas precisas. Desarrollo funcionalidades pensadas para resolver problemas reales, garantizando que cada interacción funcione de manera impecable, eficiente y con valor genuino.
               </p>
             </div>
 
-            <div className="glass-card card-ai-decision" style={{ padding: '32px' }}>
-              <h3 style={{ fontSize: '1.2rem', marginBottom: '12px', fontWeight: 600 }}>Toma de Decisiones & Metodología Iterativa</h3>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6, fontSize: '0.92rem' }}>
-                Mi metodología combina el criterio analítico con la potencia de la inteligencia artificial para crear un flujo de pensamiento y desarrollo de alta frecuencia. A través de ciclos inmediatos de retroalimentación, evalúo y ajusto cada variable funcional y visual sobre la marcha, logrando una toma de decisiones certera, veraz y orientada al alto rendimiento.
+            <div className="glass-card" style={{ padding: '32px', overflow: 'hidden' }}>
+              <div className="diagonal-stripes-muted" style={{ position: 'absolute', top: 0, right: 0, width: '60px', height: '60px', borderRadius: '0 var(--radius-lg) 0 30px' }} />
+              <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'var(--bg-card-nested)', border: '1px solid var(--border-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-gold-light)', marginBottom: '20px' }}>
+                <Cpu size={22} />
+              </div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '12px', fontWeight: 700, color: 'var(--text-primary)' }}>Toma de Decisiones &amp; Metodología Iterativa</h3>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.94rem' }}>
+                Mi metodología combina el criterio analítico con la potencia de la inteligencia artificial para un desarrollo ágil y de alta precisión. A través de ciclos inmediatos de retroalimentación, evalúo y ajusto cada variable funcional y visual sobre la marcha, orientando los resultados al alto rendimiento.
               </p>
             </div>
 
-            <div className="glass-card card-fullstack-balance" style={{ padding: '32px' }}>
-              <h3 style={{ fontSize: '1.2rem', marginBottom: '12px', fontWeight: 600 }}>Equilibrio Full Stack</h3>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6, fontSize: '0.92rem' }}>
-                El verdadero equilibrio Full Stack no radica solo en conectar bases de datos y servidores con la interfaz, sino en lograr que una arquitectura sólida conviva con un diseño visualmente cautivador. Unifico la robustez técnica con una estética cuidada para que cada aplicación no solo funcione de forma impecable, sino que realmente se sienta agradable, fluida y satisfactoria al usarla.
+            <div className="glass-card" style={{ padding: '32px', overflow: 'hidden' }}>
+              <div className="diagonal-stripes-muted" style={{ position: 'absolute', top: 0, right: 0, width: '60px', height: '60px', borderRadius: '0 var(--radius-lg) 0 30px' }} />
+              <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'var(--bg-card-nested)', border: '1px solid var(--border-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-gold-light)', marginBottom: '20px' }}>
+                <Layers size={22} />
+              </div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '12px', fontWeight: 700, color: 'var(--text-primary)' }}>Equilibrio Full Stack</h3>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.94rem' }}>
+                El verdadero equilibrio Full Stack consiste en lograr que una arquitectura sólida conviva con un diseño visualmente cautivador. Unifico la robustez técnica del backend con una estética cuidada en el frontend para que cada aplicación sea agradable, fluida y satisfactoria.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PROYECTOS / PROJECTS SHOWCASE SECTION */}
-      <section id="proyectos" className="section-padding">
+      {/* PROYECTOS DESTACADOS SHOWCASE */}
+      <section id="proyectos" className="section-padding" style={{ paddingTop: '40px' }}>
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '20px', marginBottom: '40px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '20px', marginBottom: '36px' }}>
             <div>
-              <NeonSignTitle text="Proyectos Destacados" />
+              <div className="editorial-tag">PORTAFOLIO DE TRABAJOS</div>
+              <h2 className="section-title">Proyectos Destacados</h2>
               <p className="section-subtitle" style={{ marginBottom: 0 }}>
-                Explora algunas de las soluciones digitales y sistemas que he desarrollado.
+                Explora las aplicaciones web completas y plataformas que he diseñado y programado.
               </p>
             </div>
 
             {/* Filter Tabs */}
-            <div style={{ display: 'flex', gap: '8px', background: 'rgba(15, 23, 42, 0.6)', padding: '6px', borderRadius: 'var(--radius-full)', border: '1px solid rgba(255,255,255,0.08)' }}>
-              {['all', 'fullstack', 'frontend'].map((tab) => (
+            <div style={{ display: 'flex', gap: '8px', background: 'var(--bg-surface)', padding: '6px', borderRadius: 'var(--radius-full)', border: '1px solid var(--border-gold)' }}>
+              {[
+                { id: 'all', label: 'Todos' },
+                { id: 'fullstack', label: 'Full Stack' },
+                { id: 'frontend', label: 'Frontend' }
+              ].map((tab) => (
                 <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
                   style={{
                     padding: '8px 18px',
                     borderRadius: 'var(--radius-full)',
                     border: 'none',
-                    background: activeTab === tab ? 'linear-gradient(135deg, #0284c7, #4f46e5)' : 'transparent',
-                    color: activeTab === tab ? '#fff' : '#94a3b8',
-                    fontWeight: 500,
+                    background: activeTab === tab.id ? 'linear-gradient(135deg, #deb352 0%, #c89b3c 100%)' : 'transparent',
+                    color: activeTab === tab.id ? '#12221c' : 'var(--text-secondary)',
+                    fontWeight: 700,
                     cursor: 'pointer',
                     fontSize: '0.88rem',
-                    transition: 'var(--transition)',
-                    textTransform: 'capitalize'
+                    transition: 'var(--transition)'
                   }}
                 >
-                  {tab === 'all' ? 'Todos' : tab}
+                  {tab.label}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Project Cards Grid — 2 Columns (50% / 50%) */}
+          {/* Grid de Proyectos */}
           <div className="projects-grid-two-col">
             {filteredProjects.map((project) => {
               const projectLink = (project.liveUrl && project.liveUrl !== '#')
@@ -491,27 +486,34 @@ export default function App() {
                 : project.githubUrl;
 
               return (
-                <div key={project.id} className="glass-card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                <div key={project.id} className="project-card-editorial">
+                  
+                  {/* Cinta dorada en la esquina */}
+                  <div className="editorial-ribbon" style={{ right: '20px' }}>
+                    <Bookmark size={16} />
+                  </div>
+
+                  {/* Imagen con enlace directo */}
                   <a 
                     href={projectLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="project-image-link"
+                    className="project-image-box"
                     title={`Abrir ${project.title} en una nueva pestaña`}
                   >
                     <img 
                       src={project.image} 
                       alt={project.title} 
-                      className="project-card-image"
                     />
-                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(9, 13, 22, 0.95), transparent 70%)', zIndex: 2 }} />
-                    <div style={{ position: 'absolute', top: '16px', right: '16px', zIndex: 3 }}>
-                      <span className="badge-tech" style={{ background: 'rgba(9, 13, 22, 0.85)', borderColor: 'var(--primary)' }}>
+                    <div className="project-image-gradient" />
+                    
+                    <div style={{ position: 'absolute', top: '16px', left: '16px', zIndex: 3 }}>
+                      <span className="badge-tech" style={{ background: 'rgba(17, 34, 28, 0.9)', borderColor: 'var(--accent-gold)' }}>
                         {project.category.toUpperCase()}
                       </span>
                     </div>
 
-                    <div className="project-image-hover-overlay">
+                    <div className="project-hover-pill">
                       <div className="project-hover-badge">
                         <ExternalLink size={16} />
                         <span>Abrir Proyecto ↗</span>
@@ -519,12 +521,15 @@ export default function App() {
                     </div>
                   </a>
 
+                  {/* Detalles del Proyecto */}
                   <div style={{ padding: '28px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <div style={{ color: '#38bdf8', fontSize: '0.85rem', fontWeight: 600, fontFamily: 'var(--font-mono)', marginBottom: '6px' }}>
+                    <div style={{ color: 'var(--accent-gold-light)', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: '6px', letterSpacing: '0.5px' }}>
                       {project.subtitle}
                     </div>
-                    <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '12px' }}>{project.title}</h3>
-                    <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '20px', flex: 1 }}>
+                    <h3 style={{ fontSize: '1.45rem', fontWeight: 800, marginBottom: '12px', color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>
+                      {project.title}
+                    </h3>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.65, marginBottom: '20px', flex: 1 }}>
                       {project.description}
                     </p>
 
@@ -534,32 +539,34 @@ export default function App() {
                       ))}
                     </div>
 
-                    <div style={{ display: 'flex', gap: '8px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+                    <div style={{ display: 'flex', gap: '10px', paddingTop: '18px', borderTop: '1px solid rgba(200, 155, 60, 0.2)' }}>
                       <button 
                         onClick={() => setSelectedProject(project)} 
                         className="btn-primary" 
-                        style={{ flex: 1, justifyContent: 'center', padding: '10px 12px', fontSize: '0.88rem' }}
+                        style={{ flex: 1, justifyContent: 'center', padding: '10px 14px', fontSize: '0.88rem' }}
                       >
                         <Sparkles size={16} /> Ver Detalles
                       </button>
+                      
                       {project.liveUrl && project.liveUrl !== '#' && (
                         <a 
                           href={project.liveUrl} 
                           target="_blank" 
                           rel="noopener noreferrer" 
                           className="btn-secondary"
-                          style={{ padding: '10px 12px' }}
+                          style={{ padding: '10px 14px' }}
                           title="Ver Sitio Web en Vivo"
                         >
                           <ExternalLink size={16} />
                         </a>
                       )}
+                      
                       <a 
                         href={project.githubUrl} 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="btn-secondary"
-                        style={{ padding: '10px 12px' }}
+                        style={{ padding: '10px 14px' }}
                         title="Ver Código en GitHub"
                       >
                         <GithubIcon size={16} />
@@ -573,149 +580,136 @@ export default function App() {
         </div>
       </section>
 
-      {/* HABILIDADES / SKILLS SECTION */}
-      <section id="habilidades" className="section-padding" style={{ background: 'rgba(15, 23, 42, 0.3)' }}>
+      {/* HABILIDADES & STACK TECNOLÓGICO */}
+      <section id="habilidades" className="section-padding">
         <div className="container">
-          <h2 className="section-title">💻 Habilidades &amp; Tecnologías</h2>
-          <p className="section-subtitle">
-            Stack tecnológico con el que construyo aplicaciones modernas de extremo a extremo.
-          </p>
+          <div className="editorial-window" style={{ padding: 'clamp(28px, 4vw, 48px)' }}>
+            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+              <div className="editorial-tag">COMPETENCIAS TÉCNICAS</div>
+              <h2 className="section-title">Habilidades &amp; Tecnologías</h2>
+              <p className="section-subtitle" style={{ margin: '0 auto' }}>
+                Herramientas y lenguajes con los que desarrollo soluciones de extremo a extremo.
+              </p>
+            </div>
 
-          <div className="skills-grid">
-            {skills.map((skill, index) => {
-              const IconComp = skill.icon;
-              return (
-                <div 
-                  key={index} 
-                  className="glass-card skill-card-enhanced" 
-                  style={{ 
-                    padding: '22px 24px', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '18px',
-                    '--skill-glow': skill.glowColor,
-                    '--skill-color': skill.accentColor
-                  }}
-                >
-                  <div 
-                    className="skill-icon-wrapper"
-                    style={{ 
-                      width: '52px', 
-                      height: '52px', 
-                      borderRadius: '14px', 
-                      background: 'rgba(15, 23, 42, 0.85)', 
-                      border: `1px solid ${skill.accentColor}33`,
-                      boxShadow: `0 4px 18px ${skill.glowColor}`,
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      justifyContent: 'center', 
-                      flexShrink: 0
-                    }}
-                  >
-                    <IconComp size={30} />
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                      <span style={{ fontWeight: 600, fontSize: '1.0rem', color: '#f8fafc' }}>{skill.name}</span>
-                      <span style={{ color: skill.accentColor, fontSize: '0.86rem', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{skill.level}%</span>
+            <div className="skills-grid">
+              {skills.map((skill, index) => {
+                const IconComp = skill.icon;
+                return (
+                  <div key={index} className="skill-card-editorial">
+                    <div className="skill-icon-box">
+                      <IconComp size={28} />
                     </div>
-                    <div style={{ height: '7px', width: '100%', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: `${skill.level}%`, background: skill.gradient, borderRadius: '4px', transition: 'width 1s ease-out' }} />
+                    <div style={{ flex: 1 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <span style={{ fontWeight: 600, fontSize: '0.98rem', color: 'var(--text-primary)' }}>{skill.name}</span>
+                        <span style={{ color: 'var(--accent-gold-light)', fontSize: '0.86rem', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>{skill.level}%</span>
+                      </div>
+                      <div className="skill-progress-bar">
+                        <div className="skill-progress-fill" style={{ width: `${skill.level}%` }} />
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CONTACTO / CONTACT SECTION */}
+      {/* CONTACTO & FORMULARIO */}
       <section id="contacto" className="section-padding">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '48px' }}>
-            <div>
-              <h2 className="section-title">📬 Hablemos de tu próximo proyecto</h2>
-              <p style={{ color: '#94a3b8', lineHeight: 1.6, marginBottom: '32px', fontSize: '1.05rem' }}>
-                ¿Tienes una idea, un proyecto o una propuesta laboral? Estaré encantado de conectar contigo y colaborar.
-              </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '36px' }}>
+            
+            {/* Canales Directos */}
+            <div className="editorial-window" style={{ padding: '36px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div className="editorial-tag">CONTACTO DIRECTO</div>
+                <h2 className="section-title" style={{ fontSize: '2.2rem' }}>Hablemos de tu próximo proyecto</h2>
+                <p style={{ color: 'var(--text-secondary)', lineHeight: 1.65, marginBottom: '28px', fontSize: '1.02rem' }}>
+                  ¿Tienes una propuesta laboral, proyecto en mente o consulta técnica? Estaré encantado de conversar contigo.
+                </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                <a 
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=suescunyeferson32@gmail.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="glass-card" 
-                  style={{ padding: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', textDecoration: 'none', color: '#fff' }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(56, 189, 248, 0.1)', color: '#38bdf8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Mail size={22} />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <a 
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=suescunyeferson32@gmail.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="glass-card" 
+                    style={{ padding: '18px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', textDecoration: 'none', color: '#fff' }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                      <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'var(--bg-card-nested)', color: 'var(--accent-gold-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-gold)' }}>
+                        <Mail size={20} />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 700 }}>Correo Electrónico</div>
+                        <div style={{ fontWeight: 600, fontSize: '0.95rem' }}>suescunyeferson32@gmail.com</div>
+                      </div>
+                    </div>
+                    <button 
+                      onClick={handleCopyEmail}
+                      type="button"
+                      title="Copiar correo al portapapeles"
+                      style={{
+                        background: copiedEmail ? 'rgba(52, 211, 153, 0.2)' : 'rgba(200, 155, 60, 0.15)',
+                        border: `1px solid ${copiedEmail ? 'rgba(52, 211, 153, 0.5)' : 'var(--border-gold)'}`,
+                        color: copiedEmail ? '#34d399' : 'var(--accent-gold-light)',
+                        borderRadius: '8px',
+                        padding: '6px 12px',
+                        fontSize: '0.82rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        transition: 'var(--transition)'
+                      }}
+                    >
+                      {copiedEmail ? <><Check size={14} /> Copiado</> : <><Copy size={14} /> Copiar</>}
+                    </button>
+                  </a>
+
+                  <a href="https://github.com/suescun2025" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: '18px 20px', display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none', color: '#fff' }}>
+                    <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'var(--bg-card-nested)', color: 'var(--accent-gold-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-gold)' }}>
+                      <GithubIcon size={20} />
                     </div>
                     <div>
-                      <div style={{ fontSize: '0.8rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Correo Electrónico</div>
-                      <div style={{ fontWeight: 600 }}>suescunyeferson32@gmail.com</div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 700 }}>Perfil de GitHub</div>
+                      <div style={{ fontWeight: 600, fontSize: '0.95rem' }}>github.com/suescun2025</div>
                     </div>
-                  </div>
-                  <button 
-                    onClick={handleCopyEmail}
-                    type="button"
-                    title="Copiar correo al portapapeles"
-                    style={{
-                      background: copiedEmail ? 'rgba(52, 211, 153, 0.2)' : 'rgba(255, 255, 255, 0.08)',
-                      border: `1px solid ${copiedEmail ? 'rgba(52, 211, 153, 0.5)' : 'rgba(255, 255, 255, 0.15)'}`,
-                      color: copiedEmail ? '#34d399' : '#cbd5e1',
-                      borderRadius: '8px',
-                      padding: '6px 12px',
-                      fontSize: '0.82rem',
-                      fontWeight: 600,
-                      cursor: 'pointer',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      transition: 'all 0.2s'
-                    }}
-                  >
-                    {copiedEmail ? <><Check size={14} /> Copiado</> : <><Copy size={14} /> Copiar</>}
-                  </button>
-                </a>
+                  </a>
 
-                <a href="https://github.com/suescun2025" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px', textDecoration: 'none', color: '#fff' }}>
-                  <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(129, 140, 248, 0.1)', color: '#818cf8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <GithubIcon size={22} />
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '0.8rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Perfil de GitHub</div>
-                    <div style={{ fontWeight: 600 }}>github.com/suescun2025</div>
-                  </div>
-                </a>
-
-                <a href="https://www.linkedin.com/in/yeferson-suescun-ba9824304/" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '16px', textDecoration: 'none', color: '#fff' }}>
-                  <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(52, 211, 153, 0.1)', color: '#34d399', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <LinkedinIcon size={22} />
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '0.8rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px' }}>LinkedIn</div>
-                    <div style={{ fontWeight: 600 }}>linkedin.com/in/yeferson-suescun</div>
-                  </div>
-                </a>
+                  <a href="https://www.linkedin.com/in/yeferson-suescun-ba9824304/" target="_blank" rel="noopener noreferrer" className="glass-card" style={{ padding: '18px 20px', display: 'flex', alignItems: 'center', gap: '14px', textDecoration: 'none', color: '#fff' }}>
+                    <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'var(--bg-card-nested)', color: 'var(--accent-gold-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-gold)' }}>
+                      <LinkedinIcon size={20} />
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 700 }}>LinkedIn Profesional</div>
+                      <div style={{ fontWeight: 600, fontSize: '0.95rem' }}>linkedin.com/in/yeferson-suescun</div>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="glass-card" style={{ padding: '36px' }}>
-              <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '20px' }}>Envía un mensaje</h3>
+            {/* Formulario de Mensaje */}
+            <div className="editorial-window" style={{ padding: '36px' }}>
+              <h3 style={{ fontSize: '1.45rem', fontWeight: 800, marginBottom: '20px', fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
+                Envía un mensaje
+              </h3>
               
               {formSubmitted ? (
                 <div style={{ padding: '28px 24px', background: 'rgba(52, 211, 153, 0.15)', border: '1px solid rgba(52, 211, 153, 0.4)', borderRadius: '14px', color: '#34d399', textAlign: 'center' }}>
                   <CheckCircle2 size={44} style={{ margin: '0 auto 12px' }} />
                   <h4 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '8px', color: '#fff' }}>¡Mensaje Enviado con Éxito!</h4>
                   <p style={{ color: '#cbd5e1', fontSize: '0.95rem', lineHeight: 1.5 }}>
-                    Tu mensaje ha sido enviado directamente a <strong>suescunyeferson32@gmail.com</strong>. Yeferson te responderá lo antes posible.
+                    Tu mensaje ha sido enviado directamente a <strong>suescunyeferson32@gmail.com</strong>. Yeferson te responderá a la brevedad.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleFormSubmit} autoComplete="on" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <form onSubmit={handleFormSubmit} autoComplete="on" style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                   {formError && (
                     <div style={{ padding: '14px 16px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.35)', borderRadius: '10px', color: '#fca5a5', fontSize: '0.9rem' }}>
                       {formError}
@@ -723,7 +717,7 @@ export default function App() {
                   )}
 
                   <div>
-                    <label htmlFor="contact-name" style={{ display: 'block', fontSize: '0.88rem', fontWeight: 500, color: '#cbd5e1', marginBottom: '8px' }}>Tu Nombre</label>
+                    <label htmlFor="contact-name" style={{ display: 'block', fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '8px' }}>Tu Nombre</label>
                     <input 
                       id="contact-name"
                       type="text" 
@@ -734,12 +728,12 @@ export default function App() {
                       placeholder="Ej. Carlos Pérez" 
                       required
                       disabled={isSubmitting}
-                      style={{ width: '100%', padding: '12px 16px', background: 'rgba(9, 13, 22, 0.7)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '10px', color: '#fff', fontSize: '0.95rem', outline: 'none' }} 
+                      className="form-input-editorial"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="contact-email" style={{ display: 'block', fontSize: '0.88rem', fontWeight: 500, color: '#cbd5e1', marginBottom: '8px' }}>Correo Electrónico</label>
+                    <label htmlFor="contact-email" style={{ display: 'block', fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '8px' }}>Correo Electrónico</label>
                     <input 
                       id="contact-email"
                       type="email" 
@@ -750,12 +744,12 @@ export default function App() {
                       placeholder="tu@email.com" 
                       required
                       disabled={isSubmitting}
-                      style={{ width: '100%', padding: '12px 16px', background: 'rgba(9, 13, 22, 0.7)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '10px', color: '#fff', fontSize: '0.95rem', outline: 'none' }} 
+                      className="form-input-editorial"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="contact-message" style={{ display: 'block', fontSize: '0.88rem', fontWeight: 500, color: '#cbd5e1', marginBottom: '8px' }}>Mensaje</label>
+                    <label htmlFor="contact-message" style={{ display: 'block', fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '8px' }}>Mensaje</label>
                     <textarea 
                       id="contact-message"
                       name="message" 
@@ -765,7 +759,8 @@ export default function App() {
                       placeholder="¿En qué proyecto te gustaría colaborar?" 
                       required
                       disabled={isSubmitting}
-                      style={{ width: '100%', padding: '12px 16px', background: 'rgba(9, 13, 22, 0.7)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '10px', color: '#fff', fontSize: '0.95rem', outline: 'none', resize: 'vertical' }} 
+                      className="form-input-editorial"
+                      style={{ resize: 'vertical' }}
                     />
                   </div>
 
@@ -799,33 +794,33 @@ export default function App() {
         </div>
       </section>
 
-      {/* PROJECT DETAIL MODAL */}
+      {/* MODAL DETALLES DEL PROYECTO */}
       {selectedProject && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 100, background: 'rgba(9, 13, 22, 0.85)', backdropFilter: 'blur(12px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
-          <div className="glass-card" style={{ maxWidth: '750px', width: '100%', maxHeight: '90vh', overflowY: 'auto', padding: '36px', position: 'relative' }}>
+        <div style={{ position: 'fixed', inset: 0, zIndex: 200, background: 'rgba(23, 45, 37, 0.85)', backdropFilter: 'blur(12px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
+          <div className="editorial-window" style={{ maxWidth: '750px', width: '100%', maxHeight: '90vh', overflowY: 'auto', padding: '36px', position: 'relative' }}>
             <button 
               onClick={() => setSelectedProject(null)} 
-              style={{ position: 'absolute', top: '20px', right: '20px', background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--bg-card-nested)', border: '1px solid var(--border-gold)', color: '#fff', width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
               <X size={20} />
             </button>
 
-            <div style={{ color: '#38bdf8', fontSize: '0.85rem', fontWeight: 600, fontFamily: 'var(--font-mono)', marginBottom: '8px' }}>
+            <div style={{ color: 'var(--accent-gold-light)', fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: '8px', letterSpacing: '0.5px' }}>
               {selectedProject.subtitle}
             </div>
-            <h2 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '16px' }}>{selectedProject.title}</h2>
+            <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '16px', fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>{selectedProject.title}</h2>
             
-            <img src={selectedProject.image} alt={selectedProject.title} style={{ width: '100%', height: '260px', objectFit: 'cover', borderRadius: '14px', marginBottom: '24px' }} />
+            <img src={selectedProject.image} alt={selectedProject.title} style={{ width: '100%', height: '260px', objectFit: 'cover', borderRadius: '12px', marginBottom: '24px', border: '1px solid var(--border-gold)' }} />
 
-            <p style={{ color: '#cbd5e1', lineHeight: 1.6, marginBottom: '24px', fontSize: '1.02rem' }}>
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.65, marginBottom: '24px', fontSize: '1.02rem' }}>
               {selectedProject.description}
             </p>
 
-            <h4 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '12px' }}>Puntos Clave del Proyecto:</h4>
+            <h4 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '12px', color: 'var(--accent-gold-light)' }}>Puntos Clave del Proyecto:</h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px', paddingLeft: 0, listStyle: 'none', marginBottom: '28px' }}>
               {selectedProject.highlights.map((h, idx) => (
-                <li key={idx} style={{ color: '#94a3b8', fontSize: '0.95rem', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={18} style={{ color: '#34d399', flexShrink: 0, marginTop: '2px' }} />
+                <li key={idx} style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <CheckCircle2 size={18} style={{ color: 'var(--accent-gold-light)', flexShrink: 0, marginTop: '2px' }} />
                   <span>{h}</span>
                 </li>
               ))}
@@ -861,15 +856,15 @@ export default function App() {
       )}
 
       {/* FOOTER */}
-      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.08)', padding: '32px 0', background: 'rgba(9, 13, 22, 0.95)' }}>
+      <footer style={{ borderTop: '1px solid var(--border-gold)', padding: '36px 0', background: 'var(--bg-surface)' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-          <div style={{ color: '#64748b', fontSize: '0.9rem' }}>
-            Diseñado & desarrollado por <strong style={{ color: '#cbd5e1' }}>Yeferson Suescun</strong> — Desarrollador Full Stack © 2026
+          <div style={{ color: 'var(--text-secondary)', fontSize: '0.92rem' }}>
+            Diseñado &amp; desarrollado por <strong style={{ color: 'var(--accent-gold-light)' }}>Yeferson Suescun</strong> — Desarrollador Full Stack © 2026
           </div>
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-            <a href="https://github.com/suescun2025" target="_blank" rel="noopener noreferrer" style={{ color: '#94a3b8', textDecoration: 'none' }} title="GitHub"><GithubIcon size={18} /></a>
-            <a href="https://www.linkedin.com/in/yeferson-suescun-ba9824304/" target="_blank" rel="noopener noreferrer" style={{ color: '#94a3b8', textDecoration: 'none' }} title="LinkedIn"><LinkedinIcon size={18} /></a>
-            <a href="mailto:suescunyeferson32@gmail.com" style={{ color: '#94a3b8', textDecoration: 'none' }} title="Email"><Mail size={18} /></a>
+            <a href="https://github.com/suescun2025" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }} title="GitHub"><GithubIcon size={20} /></a>
+            <a href="https://www.linkedin.com/in/yeferson-suescun-ba9824304/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }} title="LinkedIn"><LinkedinIcon size={20} /></a>
+            <a href="mailto:suescunyeferson32@gmail.com" style={{ color: 'var(--text-secondary)' }} title="Email"><Mail size={20} /></a>
           </div>
         </div>
       </footer>
