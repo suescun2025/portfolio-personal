@@ -1,8 +1,8 @@
-# 🌌 Portfolio Personal — Yeferson Suescun
+# 🌿 Portfolio Personal — Yeferson Suescun
 
 <div align="center">
 
-[![Live Demo](https://img.shields.io/badge/Demo%20en%20Vivo-suescun2025.github.io-34d399?style=for-the-badge&logo=googlechrome&logoColor=white)](https://suescun2025.github.io/portfolio-personal/)
+[![Demo en Vivo](https://img.shields.io/badge/Demo%20en%20Vivo-suescun2025.github.io-C89B3C?style=for-the-badge&logo=googlechrome&logoColor=white)](https://suescun2025.github.io/portfolio-personal/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Yeferson%20Suescun-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yeferson-suescun-ba9824304/)
 [![Email](https://img.shields.io/badge/Email-suescunyeferson32@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:suescunyeferson32@gmail.com)
 
@@ -10,25 +10,26 @@
 
 ---
 
-## 🚀 Sobre el Proyecto
+## 🏛️ Sobre el Proyecto
 
-Portafolio web personal e interactivo de **Yeferson Suescun**, Desarrollador Full Stack. Diseñado con una estética futurista **Cyberpunk / Glassmorphism** con efectos de luz neón reactivos al cursor, animación de partículas dinámicas, tipografías modernas, y una experiencia de usuario inmersiva y de alto rendimiento.
+Portafolio web personal e interactivo de **Yeferson Suescun**, Desarrollador Web Full Stack. Diseñado bajo una estética **editorial señorial de alta gama**, combinando un lienzo en marrón tierra cálido, ventanas flotantes en verde bosque profundo, acentos en dorado ocre, tipografía estructurada y la integración de retrato profesional.
 
 ### ✨ Características Principales
 
-* ⚡ **Diseño Neón Futurista & Glassmorphism:** Efectos de resplandor interactivo, tarjetas translúcidas con desenfoque de fondo y bordes iluminados.
-* 📱 **Completamente Responsive (Mobile-First):** Experiencia fluida y adaptada a dispositivos móviles, tablets y monitores de alta resolución.
-* 🛠️ **Stack Tecnológico Interactivo:** Vista detallada de tecnologías frontend, backend, bases de datos y herramientas con filtrado dinámico.
-* 🌟 **Showcase de Proyectos:** Modales detallados con descripción del proyecto, stack utilizado, vista previa y enlaces a demos/código.
-* 📬 **Formulario y Enlaces de Contacto:** Conexión directa a LinkedIn, GitHub y correo electrónico.
-* 🔄 **Despliegue Continuo (CI/CD):** Automatización con GitHub Actions para despliegue instantáneo en GitHub Pages.
+* 🎨 **Estilo Editorial Señorial:** Paleta sobria basada en fondo marrón tierra cálido (`#453b28`), contenedores modulares en verde bosque (`#172d25`) y acentos geométricos en dorado ocre (`#c89b3c`).
+* 👤 **Retrato de Perfil Integrado:** Fotografía enmarcada con remate superior en arco dorado, arcos concéntricos finos y tramas diagonales decorativas.
+* 📱 **Totalmente Responsive (Mobile-First):** Experiencia fluida y adaptada a dispositivos móviles, tablets y pantallas de escritorio de alta resolución.
+* 🛠️ **Stack Tecnológico Interactivo:** Tecnologías frontend (React, JavaScript, HTML5/CSS3), backend (Python, Django REST) y bases de datos (PostgreSQL, SQLite) con porcentajes de dominio.
+* 🌟 **Showcase de Proyectos:** Tarjetas con diseño de lazo/cinta editorial, enlaces directos a demos y modales interactivos con especificaciones técnicas detalladas.
+* 📬 **Formulario de Contacto Funcional:** Envío directo mediante `formsubmit.co`, animación de celebración con confetti y botón para copiar correo al portapapeles.
+* 🔄 **Despliegue Continuo (CI/CD):** Automatización con GitHub Actions para despliegue instantáneo en GitHub Pages con cada actualización en `main`.
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
 
-* **Frontend:** React 19, JavaScript (ES6+), HTML5 semántico
-* **Estilos & Animaciones:** Vanilla CSS3 moderno, Flexbox, CSS Grid, Glassmorphism, Keyframes & Glow Effects
+* **Frontend:** React 19, JavaScript (ES6+), HTML5 Semántico
+* **Estilos & Maquetación:** Vanilla CSS3 Moderno, Flexbox, CSS Grid, Hairline Borders & Sombras Editoriales
 * **Build Tool & Bundler:** [Vite](https://vitejs.dev/)
 * **Iconos:** Lucide React & SVGs vectoriales personalizados
 * **Hosting & CI/CD:** GitHub Pages + GitHub Actions Workflow
@@ -57,7 +58,7 @@ Abre en tu navegador la URL local indicada (habitualmente `http://localhost:5173
 
 ---
 
-## 🌐 Despliegue
+## 🌐 Despliegue en Producción
 
 El proyecto se compila y despliega automáticamente en GitHub Pages cada vez que se realiza un push a la rama `main`:
 
